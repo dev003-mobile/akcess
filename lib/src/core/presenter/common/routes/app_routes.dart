@@ -5,6 +5,6 @@ import '../../../../module/initial_module/screens/splash_screen/splash_screen.da
 
 class AppRoutes {
   static List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
-    GetPage(name: AppNameRoute.splashScreen, page: () => const SplashScreen()),
+    GetPage(name: AppNameRoute.splashScreen, page: () => SplashScreen()),
   ];
 }
