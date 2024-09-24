@@ -1,4 +1,4 @@
-package com.akcess.app.akcess
+package com.akcess.app
 
 import io.flutter.embedding.android.FlutterActivity
 
