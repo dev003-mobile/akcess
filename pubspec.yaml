@@ -9,6 +9,7 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
+  animated_text_kit: ^4.2.2
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
@@ -41,7 +42,15 @@ flutter:
   generate: true
   assets:
     - assets/images/
-  # fonts:
-  #   - family: Inter
-  #     fonts:
-  #       - asset: assets/fonts/Inter/Inter-Black.ttf
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter_28pt-Black.ttf
+        - asset: assets/fonts/Inter_28pt-Bold.ttf
+        - asset: assets/fonts/Inter_28pt-ExtraBold.ttf
+        - asset: assets/fonts/Inter_28pt-ExtraLight.ttf
+        - asset: assets/fonts/Inter_28pt-Light.ttf
+        - asset: assets/fonts/Inter_28pt-Medium.ttf
+        - asset: assets/fonts/Inter_28pt-Regular.ttf
+        - asset: assets/fonts/Inter_28pt-SemiBold.ttf
+        - asset: assets/fonts/Inter_28pt-Thin.ttf

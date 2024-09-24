@@ -7,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../common/routes/app_routes.dart';
 import '../utils/context/app_context.dart';
 import '../common/routes/app_name_route.dart';
+import '../common/design/app_theme_design.dart';
 import '../utils/device_theme/device_theme.dart';
 import '../utils/constants/app_name_constants.dart';
 
@@ -45,7 +46,8 @@ class _AppWidgetState extends State<AppWidget> with WidgetsBindingObserver {
       onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
       child: GetMaterialApp(
         enableLog: true,
-        theme: widget._deviceTheme.currentTheme,
+        theme: widget._deviceTheme.currentTheme == ThemeData.light() ? 
+          AppThemeDesign.lightTheme : AppThemeDesign.darkTheme,
         getPages: AppRoutes.routes,
         title: AppNameConstants.appName,
         debugShowCheckedModeBanner: false,
