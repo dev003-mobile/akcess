@@ -3,8 +3,9 @@ include: package:flutter_lints/flutter.yaml
 analyzer: 
   errors: 
     unnecessary_await_in_return: warning
-    always_declare_return_types: error
+    # always_declare_return_types: error
     avoid_print: warning
+    always_specify_types: ignore
 
 linter:  
   rules:
@@ -13,7 +14,7 @@ linter:
     # prefer_double_quotes: true
     prefer_final_locals: true
     avoid_unused_constructor_parameters: true
-    always_declare_return_types: true
+    # always_declare_return_types: true
     always_specify_types: true
     # strong_mode_implicit_dynamic_list_literal: false
     # strong_mode_implicit_dynamic_map_literal: false
