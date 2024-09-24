@@ -12,17 +12,21 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_animate: ^4.5.0
   flutter_launcher_icons: ^0.14.0
+  flutter_svg: ^2.0.10+1
   get: ^4.6.6
   http: ^1.2.2
+  intl: any
 
 flutter_launcher_icons:
   ios: true
   min_sdk_android: 21
   remove_alpha_ios: true
   android: "launcher_icon"
-  adaptive_icon_background: "#FFFFFF" 
+  adaptive_icon_background: "#FFFFFF"
   image_path: "assets/logo/logo-primary.png"
   adaptive_icon_foreground: "assets/logo/logo-primary.png"
 
@@ -33,10 +37,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
   assets:
     - assets/images/
   # fonts:
   #   - family: Inter
   #     fonts:
   #       - asset: assets/fonts/Inter/Inter-Black.ttf
-

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../common/routes/app_routes.dart';
 import '../utils/context/app_context.dart';
 import '../common/routes/app_name_route.dart';
+import '../utils/constants/app_name_constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -16,12 +18,14 @@ class AppWidget extends StatelessWidget {
       child: GetMaterialApp(
         enableLog: true,
         getPages: AppRoutes.routes,
-        // title: AppConstants.appName,
+        title: AppNameConstants.appName,
         debugShowCheckedModeBanner: false,
         defaultTransition: Transition.fadeIn,
         navigatorKey: AppContext.navigatorKey,
         initialRoute: AppNameRoute.splashScreen,
         transitionDuration: const Duration(milliseconds: 300),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
     );
   }
