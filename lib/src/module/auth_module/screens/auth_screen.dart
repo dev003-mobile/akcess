@@ -52,7 +52,9 @@ class _AuthScreenState extends State<AuthScreen> with WidgetsBindingObserver {
             child: Stack(
               children: <Widget>[
                 AuthBgComponent(),
-                const ContentAuthComponent()
+                AuthBgComponent(),
+                Align(alignment: Alignment.bottomLeft, child: AuthBgComponent()),
+                const ContentAuthComponent(),
               ],
             ),
           ),
