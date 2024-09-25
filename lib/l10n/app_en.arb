@@ -1,3 +1,14 @@
 {
-  
+  "startNow": "Get started now",
+  "startDescription" : "Create an account or log in to explore the app",
+  "signIn" : "Sign In",
+  "signUp" : "Sign Up",
+  "userName" : "Username",
+  "email" : "E-mail",
+  "password" : "Password",
+  "confirmPassword" : "Confirm password",
+  "forgotPassword" : "Forgot password?",
+  "rememberMe" : "Remember me",
+  "continueWithGoogle" : "Continue with Google",
+  "or" : "Or"
 }

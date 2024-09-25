@@ -13,7 +13,5 @@ class DeviceGlobalConfig {
   ]);
 
   void setStatusBarColor({Color? color, Brightness? iconBrightness = Brightness.dark }) =>
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    
-  )); 
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle()); 
 }

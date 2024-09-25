@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../../core/presenter/utils/device_theme/device_theme.dart';
-import '../../../../../core/presenter/utils/constants/app_image_constnats.dart';
+import '../../../../../core/presenter/utils/constants/app_image_constants.dart';
 
 class LogoSplashComponent extends StatelessWidget {
   LogoSplashComponent(this._animation, {super.key});

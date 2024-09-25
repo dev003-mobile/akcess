@@ -1,3 +1,14 @@
 {
-  
+  "startNow": "Começar agora",
+  "startDescription" : "Criar uma conta ou iniciar sessão para explorar o app",
+  "signIn" : "Entrar",
+  "signUp" : "Registrar",
+  "userName" : "Nome de usuário",
+  "email" : "E-mail",
+  "password" : "Palavra-passe",
+  "confirmPassword" : "Confirmar palavra-passe",
+  "forgotPassword" : "Não lembra a senha?",
+  "rememberMe" : "Lembrar-me",
+  "continueWithGoogle" : "Continuar com Google",
+  "or" : "Ou"
 }
