@@ -11,6 +11,16 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -20,9 +30,20 @@ class _SignInScreenState extends State<SignInScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CustomTextfieldWidget(title: AppLocalizations.of(context)!.email),
+          CustomTextfieldWidget(
+            focusNode: _emailFocusNode,
+            keyboardType: TextInputType.emailAddress,
+            title: AppLocalizations.of(context)!.email,
+            onSubmitted: (_) => FocusScope.of(context).requestFocus(_passwordFocusNode),
+          ),
           SizedBox(height: size.height * .025),
-          CustomTextfieldWidget(title: AppLocalizations.of(context)!.password),
+          CustomTextfieldWidget(
+            obscureText: true,
+            obscuringCharacter: '*',
+            focusNode: _passwordFocusNode,
+            textInputAction: TextInputAction.done,
+            title: AppLocalizations.of(context)!.password,
+          ),
           SizedBox(height: size.height * .008),
           CheckBoxAndForgotComponent(),
           SizedBox(height: size.height * .035),

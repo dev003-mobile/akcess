@@ -4,11 +4,13 @@
   "signIn" : "Entrar",
   "signUp" : "Registrar",
   "userName" : "Nome de usuário",
+  "phoneNumber" : "Telefone",
   "email" : "E-mail",
   "password" : "Palavra-passe",
-  "confirmPassword" : "Confirmar palavra-passe",
   "forgotPassword" : "Não lembra a senha?",
   "rememberMe" : "Lembrar-me",
   "continueWithGoogle" : "Continuar com Google",
-  "or" : "Ou"
+  "or" : "Ou",
+  "selectYourCountry" : "Selecione o seu país",
+  "remove" : "Remover"
 }

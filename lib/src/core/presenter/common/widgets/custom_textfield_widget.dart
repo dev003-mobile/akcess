@@ -6,21 +6,33 @@ class CustomTextfieldWidget extends StatelessWidget {
   const CustomTextfieldWidget({
     super.key,
     this.onTap,
+    this.focusNode,
     this.controller,
+    this.suffixIcon,
+    this.prefixIcon,
     this.onSubmitted,
     this.keyboardType,
     required this.title,
+    this.contentPadding,
     this.autocorrect = true,
+    this.obscureText = false,
+    this.obscuringCharacter = '•',
     this.textInputAction = TextInputAction.next,
   });
 
   final String title;
   final bool autocorrect;
+  final bool obscureText;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final VoidCallback? onTap;
+  final FocusNode? focusNode;
+  final String obscuringCharacter;
   final TextInputType? keyboardType;
   final Function(String)? onSubmitted;
   final TextInputAction? textInputAction;
   final TextEditingController? controller;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +53,14 @@ class CustomTextfieldWidget extends StatelessWidget {
         SizedBox(
           child: TextField(
             onTap: onTap,
+            focusNode: focusNode,
             controller: controller,
             autocorrect: autocorrect,
+            obscureText: obscureText,
             onSubmitted: onSubmitted,
             keyboardType: keyboardType,
             textInputAction: textInputAction,
+            obscuringCharacter: obscuringCharacter,
             textAlignVertical: TextAlignVertical.center,
             style: AppStyleDesign.fontStyleInter(
               size: size.height * .017,
@@ -54,10 +69,12 @@ class CustomTextfieldWidget extends StatelessWidget {
             ),
             decoration: InputDecoration(
               filled: true,
-              contentPadding: EdgeInsets.symmetric(
-                vertical: size.height * .017,
+              contentPadding: contentPadding ?? EdgeInsets.symmetric(
+                vertical: size.height * .017, 
                 horizontal: size.width * .03
               ),
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
               fillColor: Theme.of(context).colorScheme.surface.withOpacity(.7),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
@@ -66,7 +83,7 @@ class CustomTextfieldWidget extends StatelessWidget {
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10),
-              )              
+              )
             ),
           ),
         )

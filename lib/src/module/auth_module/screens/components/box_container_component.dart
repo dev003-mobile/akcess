@@ -20,7 +20,7 @@ class BoxContainerComponent extends StatelessWidget {
         return AnimatedContainer(
           height: value == 1 ? size.height * .65 : size.height * .6,
           width: size.width,
-          duration: const Duration(seconds: 1),
+          duration: const Duration(milliseconds: 700),
           curve: Curves.fastEaseInToSlowEaseOut,
           child: DecoratedBox(
             decoration: BoxDecoration(

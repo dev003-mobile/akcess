@@ -40,14 +40,16 @@ class _ListAuthButtonComponentState extends State<ListAuthButtonComponent> {
                   children: <Widget>[
                     AuthButtonOptionComponent(
                       onTap: () {
-                        widget._store.authSelectedButton.value = 0;
-                        widget._pageController.animateToPage(
-                          0, 
-                          curve: Curves.easeIn,
-                          duration: const Duration(milliseconds: 300), 
-                        );
-                        widget._store.hideRegisterButton.value = true;
                         FocusScope.of(context).unfocus();
+                        widget._store.authSelectedButton.value = 0;
+                        widget._store.hideRegisterButton.value = true;
+                        Future.delayed(const Duration(seconds: 1), () {
+                          widget._pageController.animateToPage(
+                            0, 
+                            curve: Curves.easeIn,
+                            duration: const Duration(milliseconds: 300), 
+                          );
+                        });
                       },
                       title: AppLocalizations.of(context)!.signIn,
                       isSelected: value == 0,
@@ -55,13 +57,15 @@ class _ListAuthButtonComponentState extends State<ListAuthButtonComponent> {
                     SizedBox(width: size.width * .01),
                     AuthButtonOptionComponent(
                       onTap: () {
-                        widget._store.authSelectedButton.value = 1;
-                        widget._pageController.animateToPage(
-                          1, 
-                          curve: Curves.easeIn,
-                          duration: const Duration(milliseconds: 300), 
-                        );
                         FocusScope.of(context).unfocus();
+                        widget._store.authSelectedButton.value = 1;
+                        Future.delayed(const Duration(seconds: 1), () {
+                          widget._pageController.animateToPage(
+                            1, 
+                            curve: Curves.easeIn,
+                            duration: const Duration(milliseconds: 300), 
+                          );
+                        });
                       },
                       title: AppLocalizations.of(context)!.signUp,
                       isSelected: value == 1,

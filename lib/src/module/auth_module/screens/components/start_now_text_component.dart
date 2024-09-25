@@ -9,7 +9,7 @@ class StartNowTextComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
     return SizedBox(
       child: Text(
         AppLocalizations.of(context)!.startNow,
