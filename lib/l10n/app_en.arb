@@ -16,5 +16,9 @@
   "selectAnOption" : "Select an option",
   "selectAnOptionDescription" : "Specify a method you want to use to recover your account.",
   "toContinue" : "Continuar",
-  "messageOTP" : "Message (OTP)"
+  "messageOTP" : "Message (OTP)",
+  "enterEmailAddress" : "Enter email address",
+  "enterEmailAddressDescription" : "Enter your e-mail address in the box below to receive a confirmation code to reset your password.",
+  "send" : "Send",
+  "exampleEmail" : "example@domain.com"
 }

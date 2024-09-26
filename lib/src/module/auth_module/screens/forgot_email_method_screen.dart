@@ -3,19 +3,28 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 import 'auth_exports.dart';
 
-class ChooseForgotMethodScreen extends StatefulWidget {
-  ChooseForgotMethodScreen({super.key});
+class ForgotEmailMethodScreen extends StatefulWidget {
+  ForgotEmailMethodScreen({super.key});
 
   final AuthStore _store = GetIt.I.get<AuthStore>();
 
   @override
-  State<ChooseForgotMethodScreen> createState() => _ChooseForgotMethodScreenState();
+  State<ForgotEmailMethodScreen> createState() => _ForgotEmailMethodScreenState();
 }
 
-class _ChooseForgotMethodScreenState extends State<ChooseForgotMethodScreen> {
+class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
+  final FocusNode _emailFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailFocusNode.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -37,7 +46,7 @@ class _ChooseForgotMethodScreenState extends State<ChooseForgotMethodScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        IconBackWidget(onTap: () => {widget._store.forgotOptionSelect.value = null, Get.back()}),
+                        IconBackWidget(onTap: () => Get.back()),
                         SizedBox(height: size.height * .04),
                         SizedBox(
                           child: Column(
@@ -45,7 +54,7 @@ class _ChooseForgotMethodScreenState extends State<ChooseForgotMethodScreen> {
                             children: <Widget>[
                               SizedBox(
                                 child: Text(
-                                  AppLocalizations.of(context)!.selectAnOption,
+                                  AppLocalizations.of(context)!.enterEmailAddress,
                                   maxLines: 2,
                                   textAlign: TextAlign.left,
                                   style: AppStyleDesign.fontStyleInter(
@@ -59,7 +68,7 @@ class _ChooseForgotMethodScreenState extends State<ChooseForgotMethodScreen> {
                               SizedBox(height: size.height * .01),
                               SizedBox(
                                 child: Text(
-                                  AppLocalizations.of(context)!.selectAnOptionDescription,
+                                  AppLocalizations.of(context)!.enterEmailAddressDescription,
                                   style: AppStyleDesign.fontStyleInter(
                                     size: size.height * .015,
                                     fontWeight: FontWeight.w400,
@@ -77,42 +86,46 @@ class _ChooseForgotMethodScreenState extends State<ChooseForgotMethodScreen> {
                           ),
                         ),
                         SizedBox(height: size.height * .06),
-                        ValueListenableBuilder<int?>(
-                          valueListenable: widget._store.forgotOptionSelect,
+                        ValueListenableBuilder<bool>(
+                          valueListenable: widget._store.isValidEmail,
                           builder: (_, value, __) {
-                            return ContainerForgotOptionComponent(
-                              isSelected: value == 0,
+                            return CustomTextfieldWidget(
+                              enableBorder: false,
+                              focusNode: _emailFocusNode,
+                              textInputAction: TextInputAction.done,
+                              keyboardType: TextInputType.emailAddress,
                               title: AppLocalizations.of(context)!.email,
-                              onTap: () => widget._store.forgotOptionSelect.value = 0,
+                              hintText: AppLocalizations.of(context)!.exampleEmail,
+                              fillColor: Theme.of(context).colorScheme.onSurface.withOpacity(.05),
+                              onChanged: (value) => widget._store.isValidEmail.value = EmailValidation.isValidEmail(value),
+                              suffixIcon: Visibility(
+                                visible: value,
+                                child: Icon(
+                                  size: size.height * .02,
+                                  LucideIcons.checkCircle,
+                                  color: Theme.of(context).colorScheme.onSurface,
+                                ).animate()
+                                 .scaleXY(
+                                  duration: const Duration(seconds: 1),
+                                  curve: Curves.fastEaseInToSlowEaseOut
+                                ).then()
+                                 .rotate().then()
+                              ),
                             );
                           }
                         ),
-                        SizedBox(height: size.height * .02),
-                        ValueListenableBuilder<int?>(
-                          valueListenable: widget._store.forgotOptionSelect,
-                          builder: (_, value, __) {
-                            return ContainerForgotOptionComponent(
-                              isSelected: value == 1,
-                              title: AppLocalizations.of(context)!.messageOTP,
-                              onTap: () => widget._store.forgotOptionSelect.value = 1,
-                            );
-                          }
-                        )
                       ],
                     ),
                   ),
                   Expanded(
                     flex: 0,
-                    child: ValueListenableBuilder<int?>(
-                      valueListenable: widget._store.forgotOptionSelect,
+                    child: ValueListenableBuilder<bool>(
+                      valueListenable: widget._store.isValidEmail,
                       builder: (_, value, __) {
                         return ButtonDefaultWidget(
-                          onTap: () {
-                            if (value == 0) Get.toNamed(AppNameRoute.forgotEmailMethodScreen);
-                            if (value == 1) Get.toNamed(AppNameRoute.forgotEmailMethodScreen);
-                          },
-                          isActive: value != null,
-                          title: AppLocalizations.of(context)!.toContinue
+                          onTap: () {},
+                          isActive: value,
+                          title: AppLocalizations.of(context)!.send
                         ).animate()
                          .moveY(
                           begin: 200,

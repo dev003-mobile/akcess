@@ -13,6 +13,8 @@ class AuthStore {
 
   final ValueNotifier<int?> forgotOptionSelect = ValueNotifier(null);
 
+  final ValueNotifier<bool> isValidEmail = ValueNotifier(false);
+
   final List<Country> countries = List.from(countryList)
     ..sort((a, b) => removeDiacritics(a.name!).compareTo(removeDiacritics(b.name!)));
 }

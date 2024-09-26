@@ -32,6 +32,7 @@ class _AuthScreenState extends State<AuthScreen> with WidgetsBindingObserver {
   void dispose() {
     super.dispose();
     widget._store.isSelectAuth.dispose();
+    widget._store.isValidEmail.dispose();
     widget._store.rememberLogin.dispose();
     widget._store.selectedCountry.dispose();
     widget._store.authSelectedButton.dispose();

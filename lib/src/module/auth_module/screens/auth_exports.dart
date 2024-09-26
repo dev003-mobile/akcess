@@ -16,6 +16,7 @@ export 'components/sign_up_components/show_popover_component.dart';
 export '../../../core/presenter/common/design/app_style_design.dart';
 export '../../../core/presenter/common/widgets/icon_back_widget.dart';
 export '../../initial_module/screens/splash_screen/splash_exports.dart';
+export '../../../core/presenter/utils/validations/email_validation.dart';
 export '../../../core/presenter/utils/constants/app_name_constants.dart';
 export '../../../core/presenter/utils/constants/app_image_constants.dart';
 export 'components/sign_in_components/checkbox_and_forgot_component.dart';

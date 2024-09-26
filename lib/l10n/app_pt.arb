@@ -16,5 +16,9 @@
   "selectAnOption" : "Selecione uma opção",
   "selectAnOptionDescription" : "Especifique um método pelo qual queira usar para dar seguimento a recuperação da sua conta.",
   "toContinue" : "Continuar",
-  "messageOTP" : "Mensagem (OTP)"
+  "messageOTP" : "Mensagem (OTP)",
+  "enterEmailAddress" : "Informe o email",
+  "enterEmailAddressDescription" : "Passe o seu e-mail na caixa abaixo para receber o código de confirmação de redefinição de senha.",
+  "send" : "Enviar",
+  "exampleEmail" : "exemplo@dominio.com"
 }
