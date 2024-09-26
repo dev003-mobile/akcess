@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 
-import '../auth_exports.dart';
+import '../exports/auth_exports.dart';
 
 class AuthBgComponent extends StatelessWidget {
   AuthBgComponent({super.key});

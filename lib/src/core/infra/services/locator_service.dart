@@ -4,6 +4,9 @@ import '../../external/servers/api_server.dart';
 import '../../presenter/utils/clients/http_client_imp.dart';
 import '../../../module/auth_module/_stores/auth_store.dart';
 import '../../presenter/utils/device_theme/device_theme.dart';
+import '../../../module/auth_module/_stores/forgot_email_method_store.dart';
+import '../../../module/auth_module/_stores/choose_forgot_method_store.dart';
+import '../../../module/auth_module/_stores/forgot_phone_number_method_store.dart';
 
 class LocatorService {
   static Future<void> initialize() async {
@@ -14,5 +17,8 @@ class LocatorService {
     locator.registerLazySingleton<DeviceTheme>(() => DeviceTheme());
 
     locator.registerLazySingleton<AuthStore>(() => AuthStore());
+    locator.registerLazySingleton<ForgotEmailMethodStore>(() => ForgotEmailMethodStore());
+    locator.registerLazySingleton<ChooseForgotMethodStore>(() => ChooseForgotMethodStore());
+    locator.registerLazySingleton<ForgotPhoneNumberMethodStore>(() => ForgotPhoneNumberMethodStore());
   }
 }

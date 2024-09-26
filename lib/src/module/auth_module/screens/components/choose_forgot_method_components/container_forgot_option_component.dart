@@ -27,7 +27,7 @@ class _ButtonDefaultWidgetState extends State<ContainerForgotOptionComponent> {
       onTap: widget.onTap,
       child: Container(
         width: size.width,
-        height: size.height * .085,
+        height: size.height * .075,
         decoration: BoxDecoration(
           border: Border.all(
             width: 0.15,
@@ -46,7 +46,7 @@ class _ButtonDefaultWidgetState extends State<ContainerForgotOptionComponent> {
             maxLines: 2,
             textAlign: TextAlign.left,
             style: AppStyleDesign.fontStyleInter(
-              size: size.height * .025,
+              size: size.height * .02,
               fontWeight: FontWeight.w400,
               textOverflow: TextOverflow.clip,
               color: widget.isSelected ? 

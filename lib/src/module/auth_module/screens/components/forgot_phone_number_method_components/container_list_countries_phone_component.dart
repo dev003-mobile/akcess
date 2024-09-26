@@ -5,18 +5,18 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:country_currency_pickers/utils/utils.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../exports/forgot_phone_number_method_exports.dart';
+import '../../exports/auth_exports.dart';
 
-class ContainerListCountriesComponent extends StatefulWidget {
-  ContainerListCountriesComponent({super.key});
+class ContainerListCountriesPhoneComponent extends StatefulWidget {
+  ContainerListCountriesPhoneComponent({super.key});
 
-  final ForgotPhoneNumberMethodStore _store = GetIt.I.get<ForgotPhoneNumberMethodStore>();
+  final AuthStore _store = GetIt.I.get<AuthStore>();
 
   @override
-  State<ContainerListCountriesComponent> createState() => _ContainerListCountriesComponentState();
+  State<ContainerListCountriesPhoneComponent> createState() => _ContainerListCountriesPhoneComponentState();
 }
 
-class _ContainerListCountriesComponentState extends State<ContainerListCountriesComponent> {
+class _ContainerListCountriesPhoneComponentState extends State<ContainerListCountriesPhoneComponent> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -53,7 +53,7 @@ class _ContainerListCountriesComponentState extends State<ContainerListCountries
                         delegate: SliverChildBuilderDelegate(
                           childCount: widget._store.countries.length,
                           (_, index) => InkWell(
-                            onTap: () => {widget._store.phoneNumberSelectedCountry.value = widget._store.countries[index], Get.back()},
+                            onTap: () => {widget._store.selectedCountry.value = widget._store.countries[index], Get.back()},
                             child: Animate(
                               effects: const <Effect>[FadeEffect(
                                 duration: Duration(seconds: 1),

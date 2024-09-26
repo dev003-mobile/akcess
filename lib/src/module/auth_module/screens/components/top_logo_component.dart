@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import '../auth_exports.dart';
+import '../exports/auth_exports.dart';
 
 class TopLogoComponent extends StatefulWidget {
   TopLogoComponent({super.key});

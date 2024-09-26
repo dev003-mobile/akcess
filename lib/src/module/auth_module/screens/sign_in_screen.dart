@@ -2,7 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'auth_exports.dart';
+import 'exports/auth_exports.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});

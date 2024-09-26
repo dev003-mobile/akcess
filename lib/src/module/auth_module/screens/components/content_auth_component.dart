@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../auth_exports.dart';
+import '../exports/auth_exports.dart';
 
 class ContentAuthComponent extends StatefulWidget {  
   const ContentAuthComponent({super.key});

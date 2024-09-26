@@ -2,7 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import '../auth_exports.dart';
+import '../exports/auth_exports.dart';
 
 class BoxContainerComponent extends StatelessWidget {
   BoxContainerComponent(this._pageController, {super.key});

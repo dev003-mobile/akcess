@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import 'auth_exports.dart';
+import 'exports/auth_exports.dart';
 
 class AuthScreen extends StatefulWidget {
   AuthScreen({super.key});
@@ -32,12 +32,10 @@ class _AuthScreenState extends State<AuthScreen> with WidgetsBindingObserver {
   void dispose() {
     super.dispose();
     widget._store.isSelectAuth.dispose();
-    widget._store.isValidEmail.dispose();
     widget._store.rememberLogin.dispose();
     widget._store.selectedCountry.dispose();
     widget._store.authSelectedButton.dispose();
     widget._store.hideRegisterButton.dispose();
-    widget._store.forgotOptionSelect.dispose();
     WidgetsBinding.instance.removeObserver(this);
   }
 

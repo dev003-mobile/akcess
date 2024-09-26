@@ -19,6 +19,8 @@
   "messageOTP" : "Mensagem (OTP)",
   "enterEmailAddress" : "Informe o email",
   "enterEmailAddressDescription" : "Passe o seu e-mail na caixa abaixo para receber o código de confirmação de redefinição de senha.",
+  "enterPhoneNumber" : "Informe seu número",
+  "enterPhoneNumberDescription" : "Informe-nos o seu número de telefone. Um código OTP será enviado em minutos para seguir com a redefinição de senha.",
   "send" : "Enviar",
   "exampleEmail" : "exemplo@dominio.com"
 }

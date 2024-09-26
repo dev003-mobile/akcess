@@ -5,7 +5,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:country_currency_pickers/country.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'auth_exports.dart';
+import 'exports/auth_exports.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({super.key});

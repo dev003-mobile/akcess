@@ -4,19 +4,19 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:country_currency_pickers/country.dart';
 import 'package:country_currency_pickers/utils/utils.dart';
 
-import '../../exports/auth_exports.dart';
+import '../../exports/forgot_phone_number_method_exports.dart';
 
-class DropButtonCountryComponent extends StatelessWidget {
-  DropButtonCountryComponent({super.key, this.color});
+class DropButtonCountryPhoneComponent extends StatelessWidget {
+  DropButtonCountryPhoneComponent({super.key, this.color});
 
   final Color? color;
-  final AuthStore _store = GetIt.I.get<AuthStore>();
+  final ForgotPhoneNumberMethodStore _store = GetIt.I.get<ForgotPhoneNumberMethodStore>();
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
     return ValueListenableBuilder<Country?>(
-      valueListenable: _store.selectedCountry,
+      valueListenable: _store.phoneNumberSelectedCountry,
       builder: (_, value, __) {
         return Container(
           width: size.width * .175,

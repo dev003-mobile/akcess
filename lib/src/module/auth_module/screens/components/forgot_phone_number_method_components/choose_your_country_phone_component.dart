@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../exports/auth_exports.dart';
 
-class ChooseYourCountryComponent extends StatelessWidget {
-  const ChooseYourCountryComponent({super.key});
+class ChooseYourCountryPhoneComponent extends StatelessWidget {
+  const ChooseYourCountryPhoneComponent({super.key});
 
   @override
   Widget build(BuildContext context) {

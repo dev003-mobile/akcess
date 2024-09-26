@@ -3,12 +3,12 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../exports/auth_exports.dart';
+import '../../exports/forgot_phone_number_method_exports.dart';
 
-class ShowPopoverComponent extends StatelessWidget {
-  ShowPopoverComponent({super.key});
+class ShowPopoverPhoneComponent extends StatelessWidget {
+  ShowPopoverPhoneComponent({super.key});
 
-  final AuthStore _store = GetIt.I.get<AuthStore>();
+  final ForgotPhoneNumberMethodStore _store = GetIt.I.get<ForgotPhoneNumberMethodStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ShowPopoverComponent extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           child: InkWell(
             onTap: () {
-              _store.selectedCountry.value = null;
+              _store.phoneNumberSelectedCountry.value = null;
               Get.back();
             },
             child: Center(
