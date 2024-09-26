@@ -14,21 +14,22 @@ class LogoSplashComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.sizeOf(context);
     return Expanded(
       child: SizedBox(
         child: Center(
           child: RotationTransition(
             turns: _animation,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(20),
               child: RotatedBox(
                 quarterTurns: -1,
                 child: SvgPicture.asset(
                   _deviceTheme.currentTheme == ThemeData.light() ? 
                     AppImageConstants.logoPrimaryImage : 
                     AppImageConstants.logoSecondaryImage,
-                  width: 100,
-                  height: 100,
+                  width: size.width * .1,
+                  height: size.height * .1,
                 ),
               ),
             ),

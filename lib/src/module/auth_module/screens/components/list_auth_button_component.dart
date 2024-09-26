@@ -38,37 +38,49 @@ class _ListAuthButtonComponentState extends State<ListAuthButtonComponent> {
                 padding: EdgeInsets.all(size.height * .005),
                 child: Row(
                   children: <Widget>[
-                    AuthButtonOptionComponent(
-                      onTap: () {
-                        FocusScope.of(context).unfocus();
-                        widget._store.authSelectedButton.value = 0;
-                        widget._store.hideRegisterButton.value = true;
-                        Future.delayed(const Duration(seconds: 1), () {
-                          widget._pageController.animateToPage(
-                            0, 
-                            curve: Curves.easeIn,
-                            duration: const Duration(milliseconds: 300), 
-                          );
-                        });
-                      },
-                      title: AppLocalizations.of(context)!.signIn,
-                      isSelected: value == 0,
+                    ValueListenableBuilder<bool>(
+                      valueListenable: widget._store.isSelectAuth,
+                      builder: (_, isSelectAuth, __) {
+                        return AuthButtonOptionComponent(
+                          onTap: isSelectAuth ? () {
+                            FocusScope.of(context).unfocus();
+                            widget._store.isSelectAuth.value = false;
+                            widget._store.authSelectedButton.value = 0;
+                            widget._store.hideRegisterButton.value = true;
+                            Future.delayed(const Duration(milliseconds: 700), () {
+                              widget._pageController.animateToPage(
+                                0, 
+                                curve: Curves.easeIn,
+                                duration: const Duration(milliseconds: 200), 
+                              );
+                            });
+                          } : null,
+                          title: AppLocalizations.of(context)!.signIn,
+                          isSelected: value == 0,
+                        );
+                      }
                     ),
                     SizedBox(width: size.width * .01),
-                    AuthButtonOptionComponent(
-                      onTap: () {
-                        FocusScope.of(context).unfocus();
-                        widget._store.authSelectedButton.value = 1;
-                        Future.delayed(const Duration(seconds: 1), () {
-                          widget._pageController.animateToPage(
-                            1, 
-                            curve: Curves.easeIn,
-                            duration: const Duration(milliseconds: 300), 
-                          );
-                        });
-                      },
-                      title: AppLocalizations.of(context)!.signUp,
-                      isSelected: value == 1,
+                    ValueListenableBuilder<bool>(
+                      valueListenable: widget._store.isSelectAuth,
+                      builder: (_, isSelectAuth, __) {
+                        return AuthButtonOptionComponent(
+                          onTap: isSelectAuth ? () {
+                            FocusScope.of(context).unfocus();
+                            widget._store.isSelectAuth.value = false;
+                            widget._store.authSelectedButton.value = 1;
+                            Future.delayed(const Duration(milliseconds: 700), () {
+                              widget._pageController.animateToPage(
+                                1, 
+                                curve: Curves.easeIn,
+                                duration: const Duration(milliseconds: 200), 
+                              );
+                            });
+                          } : null,
+                          title: AppLocalizations.of(context)!.signUp,
+                          isSelected: value == 1,
+                        );
+                      }
                     )
                   ],
                 ),

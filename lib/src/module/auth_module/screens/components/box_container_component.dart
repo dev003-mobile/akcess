@@ -1,6 +1,6 @@
+import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:get_it/get_it.dart';
 
 import '../auth_exports.dart';
 
@@ -20,7 +20,7 @@ class BoxContainerComponent extends StatelessWidget {
         return AnimatedContainer(
           height: value == 1 ? size.height * .65 : size.height * .6,
           width: size.width,
-          duration: const Duration(milliseconds: 700),
+          duration: const Duration(milliseconds: 900),
           curve: Curves.fastEaseInToSlowEaseOut,
           child: DecoratedBox(
             decoration: BoxDecoration(
@@ -41,7 +41,7 @@ class BoxContainerComponent extends StatelessWidget {
                       controller: _pageController,
                       physics: const NeverScrollableScrollPhysics(),
                       children: <Widget>[
-                        const SignInScreen(),
+                        SignInScreen(),
                         SignUpScreen()
                       ],
                     )

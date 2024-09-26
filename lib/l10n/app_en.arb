@@ -12,5 +12,9 @@
   "continueWithGoogle" : "Continue with Google",
   "or" : "Or",
   "selectYourCountry" : "Select your country",
-  "remove" : "Remove"
+  "remove" : "Remove",
+  "selectAnOption" : "Select an option",
+  "selectAnOptionDescription" : "Specify a method you want to use to recover your account.",
+  "toContinue" : "Continuar",
+  "messageOTP" : "Message (OTP)"
 }

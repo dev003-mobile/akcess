@@ -1,10 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:country_currency_pickers/country.dart';
-import 'package:country_currency_pickers/countries.dart';
 import 'package:country_currency_pickers/utils/utils.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -20,9 +17,6 @@ class ContainerListCountriesComponent extends StatefulWidget {
 }
 
 class _ContainerListCountriesComponentState extends State<ContainerListCountriesComponent> {
-  final List<Country> countries = List.from(countryList)
-    ..sort((a, b) => removeDiacritics(a.name!).compareTo(removeDiacritics(b.name!)));
-
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -53,90 +47,99 @@ class _ContainerListCountriesComponentState extends State<ContainerListCountries
                 ),
                 SizedBox(height: size.height * .03),
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: countries.length,
-                    itemBuilder: (_, index) => InkWell(
-                      onTap: () {
-                        widget._store.selectedCountry.value = countries[index];
-                        Get.back();
-                      },
-                      child: SizedBox(
-                        width: size.width,
-                        height: size.height * .065,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: size.width * .04),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: SizedBox(
+                  child: CustomScrollView(
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          childCount: widget._store.countries.length,
+                          (_, index) => InkWell(
+                            onTap: () => {widget._store.selectedCountry.value = widget._store.countries[index], Get.back()},
+                            child: Animate(
+                              effects: const <Effect>[FadeEffect(
+                                duration: Duration(seconds: 1),
+                                curve: Curves.fastEaseInToSlowEaseOut
+                              )],
+                              child: SizedBox(
+                                width: size.width,
+                                height: size.height * .065,
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: size.width * .04),
                                   child: Row(
                                     children: <Widget>[
                                       Expanded(
-                                        flex: 0,
-                                        child: ClipOval(
-                                          child: Container(
-                                            width: size.width * .065,
-                                            height: size.height * .028,
-                                            decoration: BoxDecoration(
-                                              boxShadow: <BoxShadow>[
-                                                BoxShadow(
-                                                  blurRadius: 5,
-                                                  spreadRadius: 5,
-                                                  color: Theme.of(context).colorScheme.onSurface
-                                                )
-                                              ]
-                                            ),
-                                            child: CountryPickerUtils.getDefaultFlagImage(countries[index])
+                                        child: SizedBox(
+                                          child: Row(
+                                            children: <Widget>[
+                                              Expanded(
+                                                flex: 0,
+                                                child: ClipOval(
+                                                  child: Container(
+                                                    width: size.width * .065,
+                                                    height: size.height * .028,
+                                                    decoration: BoxDecoration(
+                                                      boxShadow: <BoxShadow>[
+                                                        BoxShadow(
+                                                          blurRadius: 5,
+                                                          spreadRadius: 5,
+                                                          color: Theme.of(context).colorScheme.onSurface
+                                                        )
+                                                      ]
+                                                    ),
+                                                    child: CountryPickerUtils.getDefaultFlagImage(widget._store.countries[index])
+                                                  )
+                                                ),
+                                              ),
+                                              SizedBox(width: size.width * .1),
+                                              Expanded(
+                                                child: SizedBox(
+                                                  child: Text(
+                                                    widget._store.countries[index].name ?? "",
+                                                    style: AppStyleDesign.fontStyleInter(
+                                                      size: size.height * .017,
+                                                      fontWeight: FontWeight.w500,
+                                                      color: Theme.of(context).colorScheme.onSurface
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ).animate()
+                                          .moveX(
+                                            begin: 200,
+                                            duration: const Duration(seconds: 1),
+                                            curve: Curves.fastEaseInToSlowEaseOut
                                           )
-                                        ),
+                                        )
                                       ),
-                                      SizedBox(width: size.width * .1),
+                                      SizedBox(width: size.width * .03),
                                       Expanded(
+                                        flex: 0,
                                         child: SizedBox(
                                           child: Text(
-                                            countries[index].name ?? "",
+                                            "+${widget._store.countries[index].phoneCode}",
                                             style: AppStyleDesign.fontStyleInter(
                                               size: size.height * .017,
                                               fontWeight: FontWeight.w500,
                                               color: Theme.of(context).colorScheme.onSurface
                                             ),
                                           ),
-                                        ),
-                                      ),
+                                        )
+                                      ).animate()
+                                      .moveX(
+                                        begin: -200,
+                                        duration: const Duration(seconds: 1),
+                                        curve: Curves.fastEaseInToSlowEaseOut
+                                      )
                                     ],
                                   ),
-                                ).animate()
-                                 .moveX(
-                                  begin: -200,
-                                  delay: const Duration(seconds: 1),
-                                  curve: Curves.fastEaseInToSlowEaseOut
                                 ),
                               ),
-                              SizedBox(width: size.width * .03),
-                              Expanded(
-                                flex: 0,
-                                child: SizedBox(
-                                  child: Text(
-                                    "+${countries[index].phoneCode}",
-                                    style: AppStyleDesign.fontStyleInter(
-                                      size: size.height * .017,
-                                      fontWeight: FontWeight.w500,
-                                      color: Theme.of(context).colorScheme.onSurface
-                                    ),
-                                  ),
-                                ).animate()
-                                .moveX(
-                                  begin: 200,
-                                  duration: const Duration(seconds: 1),
-                                  curve: Curves.fastEaseInToSlowEaseOut
-                                ),
-                              )
-                            ],
-                          ),
+                            ),
+                          )
                         ),
-                      ),
-                    )
-                  ),
+                      )
+                    ],
+                  )
                 ),
               ],
             ),

@@ -14,10 +14,12 @@ class AppThemeDesign {
       primary: Color(0XFF440890),
       onPrimary: Color(0XFF440890),
       secondary: Color(0XFF440890),
+      onSecondary: Color(0XFF440890),
       tertiary: Color(0xFFFFFFFF),
       onTertiary:Color(0xFF212121) ,
       surface: Color(0xFFFFFFFF),
       onSurface: Color(0xFF212121),
+      onPrimaryContainer: Color(0xFF212121)
     )
   );
   
@@ -34,10 +36,12 @@ class AppThemeDesign {
       primary: Color(0XFF440890),
       onPrimary: Color(0xFF212121),
       secondary: Color(0xFFFFFFFF),
+      onSecondary: Color(0X00000000),
       tertiary: Color(0xFFFFFFFF),
       onTertiary:Color(0xFFFFFFFF),
       surface: Color(0xFF212121),
-      onSurface: Color(0xFFFFFFFF)
+      onSurface: Color(0xFFFFFFFF),
+      onPrimaryContainer: Color(0xFF212121)
     )
   );
 }

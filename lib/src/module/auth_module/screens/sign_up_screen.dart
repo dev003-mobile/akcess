@@ -1,7 +1,7 @@
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get_it/get_it.dart';
 import 'package:popover/popover.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:country_currency_pickers/country.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -26,6 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void initState() {
     super.initState();
     widget._store.hideRegisterButton.value = false;
+    Future.delayed(const Duration(milliseconds: 900), () => widget._store.isSelectAuth.value = true);
   }
 
   @override
@@ -54,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           SizedBox(height: size.height * .025),
           ValueListenableBuilder<Country?>(
             valueListenable: widget._store.selectedCountry,
-            builder: (_, value, __) {
+            builder: (_, ___, __) {
               return Stack(
                 children: <Widget>[
                   CustomTextfieldWidget(
@@ -62,7 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     keyboardType: TextInputType.number,
                     title: AppLocalizations.of(context)!.phoneNumber,
                     prefixIcon: GestureDetector(
-                      onLongPress: value != null ? () {
+                      onLongPress: widget._store.selectedCountry.value != null ? () {
                         _userNameFocusNode.unfocus();
                         _phoneNumberFocusNode.unfocus();
                         _emailFocusNode.unfocus();

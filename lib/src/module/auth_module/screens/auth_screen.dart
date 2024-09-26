@@ -31,10 +31,12 @@ class _AuthScreenState extends State<AuthScreen> with WidgetsBindingObserver {
   @override
   void dispose() {
     super.dispose();
+    widget._store.isSelectAuth.dispose();
     widget._store.rememberLogin.dispose();
     widget._store.selectedCountry.dispose();
     widget._store.authSelectedButton.dispose();
     widget._store.hideRegisterButton.dispose();
+    widget._store.forgotOptionSelect.dispose();
     WidgetsBinding.instance.removeObserver(this);
   }
 

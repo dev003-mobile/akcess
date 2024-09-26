@@ -19,6 +19,6 @@ class AppStyleDesign {
     decoration: decoration,
     letterSpacing: letterSpacing,
     backgroundColor: backgroundColor,
-    overflow: textOverflow
+    overflow: textOverflow,
   );
 }

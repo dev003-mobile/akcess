@@ -1,10 +1,13 @@
+import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'auth_exports.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+  SignInScreen({super.key});
+
+  final AuthStore _store = GetIt.I.get<AuthStore>();
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -13,6 +16,12 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 900), () => widget._store.isSelectAuth.value = true);
+  }
 
   @override
   void dispose() {

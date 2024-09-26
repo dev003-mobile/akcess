@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -63,7 +64,7 @@ class _CheckBoxAndForgotComponentState extends State<CheckBoxAndForgotComponent>
           ),
           SizedBox(
             child: InkWell(
-              onTap: () {},
+              onTap: () => Get.toNamed(AppNameRoute.chooseForgotMethodScreen),
               borderRadius: BorderRadius.circular(4),
               child: Padding(
                 padding: EdgeInsets.symmetric(
