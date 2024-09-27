@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:popover/popover.dart';
@@ -106,7 +108,9 @@ class _ForgotPhoneNumberMethodScreenState extends State<ForgotPhoneNumberMethodS
                                 controller: _phoneNumberController,
                                 title: AppLocalizations.of(context)!.phoneNumber,
                                 onChanged: (value) => widget._store.phoneNumber.value = value,
-                                fillColor: Theme.of(context).colorScheme.onSurface.withOpacity(.05),
+                                fillColor: PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
+                                  Theme.of(context).colorScheme.onSecondary.withOpacity(.3) :
+                                  Theme.of(context).colorScheme.onSurface.withOpacity(.08),
                                 prefixIcon: GestureDetector(
                                   onLongPress: widget._store.phoneNumberSelectedCountry.value != null ? () {
                                     _phoneNumberFocusNode.unfocus();
@@ -118,8 +122,8 @@ class _ForgotPhoneNumberMethodScreenState extends State<ForgotPhoneNumberMethodS
                                       width: size.width * .25,
                                       height: size.height * .035,
                                       arrowDxOffset: size.width * .05,
-                                      contentDxOffset: -(size.height * .32),
-                                      contentDyOffset: -(size.height * .32),
+                                      contentDxOffset: -(size.height * .62),
+                                      contentDyOffset: -(size.height * .62),
                                       direction: PopoverDirection.bottom,
                                       transition: PopoverTransition.scale,
                                     );
@@ -153,9 +157,10 @@ class _ForgotPhoneNumberMethodScreenState extends State<ForgotPhoneNumberMethodS
                         valueListenable: widget._store.phoneNumber,
                         builder: (_, phoneNumber, __) {
                           return ButtonDefaultWidget(
-                            onTap: () {},
+                            hasAnimation: false,
+                            onTap: () => Get.offNamed(AppNameRoute.verificationOTPScreen),
+                            title: AppLocalizations.of(context)!.send,
                             isActive: value != null && phoneNumber.trim().isNotEmpty,
-                            title: AppLocalizations.of(context)!.send
                           ).animate()
                            .moveY(
                             begin: 200,

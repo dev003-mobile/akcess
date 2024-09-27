@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -23,7 +25,9 @@ class DropButtonCountryPhoneComponent extends StatelessWidget {
           margin: EdgeInsets.only(right: size.width * .03),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: color ?? Theme.of(context).colorScheme.surface,
+            color: PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
+              Theme.of(context).colorScheme.onSecondary.withOpacity(.3) :
+              Theme.of(context).colorScheme.onSurface.withOpacity(.08),
           ),
           child: value != null ? SizedBox(
             child: Row(

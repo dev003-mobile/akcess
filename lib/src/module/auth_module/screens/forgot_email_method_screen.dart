@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
@@ -101,14 +102,16 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
                             keyboardType: TextInputType.emailAddress,
                             title: AppLocalizations.of(context)!.email,
                             hintText: AppLocalizations.of(context)!.exampleEmail,
-                            fillColor: Theme.of(context).colorScheme.onSurface.withOpacity(.05),
+                            fillColor: PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
+                              Theme.of(context).colorScheme.onSecondary.withOpacity(.3) :
+                              Theme.of(context).colorScheme.onSurface.withOpacity(.08),
                             onChanged: (value) => widget._store.isValidEmail.value = EmailValidation.isValidEmail(value),
                             suffixIcon: Visibility(
                               visible: value,
                               child: Icon(
                                 size: size.height * .02,
                                 LucideIcons.checkCircle,
-                                color: Theme.of(context).colorScheme.onSurface,
+                                color: Theme.of(context).colorScheme.secondary,
                               ).animate()
                                .scaleXY(
                                 duration: const Duration(seconds: 1),
@@ -128,7 +131,8 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
                     valueListenable: widget._store.isValidEmail,
                     builder: (_, value, __) {
                       return ButtonDefaultWidget(
-                        onTap: () {},
+                        hasAnimation: false,
+                        onTap: () => Get.offNamed(AppNameRoute.verificationOTPScreen),
                         isActive: value,
                         title: AppLocalizations.of(context)!.send
                       ).animate()

@@ -5,12 +5,12 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:country_currency_pickers/utils/utils.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../exports/auth_exports.dart';
+import '../../exports/forgot_phone_number_method_exports.dart';
 
 class ContainerListCountriesPhoneComponent extends StatefulWidget {
   ContainerListCountriesPhoneComponent({super.key});
 
-  final AuthStore _store = GetIt.I.get<AuthStore>();
+  final ForgotPhoneNumberMethodStore _store = GetIt.I.get<ForgotPhoneNumberMethodStore>();
 
   @override
   State<ContainerListCountriesPhoneComponent> createState() => _ContainerListCountriesPhoneComponentState();
@@ -53,7 +53,7 @@ class _ContainerListCountriesPhoneComponentState extends State<ContainerListCoun
                         delegate: SliverChildBuilderDelegate(
                           childCount: widget._store.countries.length,
                           (_, index) => InkWell(
-                            onTap: () => {widget._store.selectedCountry.value = widget._store.countries[index], Get.back()},
+                            onTap: () => {widget._store.phoneNumberSelectedCountry.value = widget._store.countries[index], Get.back()},
                             child: Animate(
                               effects: const <Effect>[FadeEffect(
                                 duration: Duration(seconds: 1),

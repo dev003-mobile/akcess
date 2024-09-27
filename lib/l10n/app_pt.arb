@@ -22,5 +22,11 @@
   "enterPhoneNumber" : "Informe seu número",
   "enterPhoneNumberDescription" : "Informe-nos o seu número de telefone. Um código OTP será enviado em minutos para seguir com a redefinição de senha.",
   "send" : "Enviar",
-  "exampleEmail" : "exemplo@dominio.com"
+  "exampleEmail" : "exemplo@dominio.com",
+  "redefine" : "Redefinir",
+  "verificationCode" : "Código de Verificação",
+  "verificationCodeDescription" : "Enviámos-lhe um código para verificar o seu número de telefone. Por favor, verifique as suas mensagens e introduza o código abaixo.",
+  "didntGetACode" : "Não recebeu um código?",
+  "resend" : "Reenviar",
+  "verify" : "Verificar"
 }

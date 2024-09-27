@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../exports/auth_exports.dart';
+import '../../exports/forgot_phone_number_method_exports.dart';
 
 class ChooseYourCountryPhoneComponent extends StatelessWidget {
   const ChooseYourCountryPhoneComponent({super.key});
@@ -21,8 +21,8 @@ class ChooseYourCountryPhoneComponent extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: <Widget>[
-                  ContainerListCountriesComponent(),
-                  const ButtonCloseCountriesComponent()
+                  ContainerListCountriesPhoneComponent(),
+                  const ButtonCloseCountriesPhoneComponent()
                 ],
               ),
             ),

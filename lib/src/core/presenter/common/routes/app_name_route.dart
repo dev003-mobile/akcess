@@ -4,4 +4,5 @@ class AppNameRoute {
   static String chooseForgotMethodScreen = "/choose_forgot_method_screen";
   static String forgotEmailMethodScreen = "/forgot_email_method_screen";
   static String forgotPhoneNumberMethodScreen = "/forgot_phone_number_method_screen";
+  static String verificationOTPScreen = "/verification_otp_screen";
 }

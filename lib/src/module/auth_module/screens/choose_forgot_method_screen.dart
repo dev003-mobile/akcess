@@ -121,6 +121,7 @@ class _ChooseForgotMethodScreenState extends State<ChooseForgotMethodScreen> {
                           if (value == 0) Get.toNamed(AppNameRoute.forgotEmailMethodScreen);
                           if (value == 1) Get.toNamed(AppNameRoute.forgotPhoneNumberMethodScreen);
                         },
+                        hasAnimation: false,
                         isActive: value != null,
                         title: AppLocalizations.of(context)!.toContinue
                       ).animate()

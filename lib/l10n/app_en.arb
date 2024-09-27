@@ -22,5 +22,11 @@
   "enterPhoneNumber" : "Enter your number",
   "enterPhoneNumberDescription" : "Tell us your phone number. An OTP code will be sent to you in a few minutes to help you reset your password.",
   "send" : "Send",
-  "exampleEmail" : "example@domain.com"
+  "exampleEmail" : "example@domain.com",
+  "redefine" : "Redefine",
+  "verificationCode" : "Verification Code",
+  "verificationCodeDescription" : "We sent you a code to verify you phone number. Please check your messages and enter the code below.",
+  "didntGetACode" : "Didn't get a code?",
+  "resend" : "Resend",
+  "verify" : "Verify"
 }

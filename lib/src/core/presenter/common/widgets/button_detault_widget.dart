@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../design/app_style_design.dart';
@@ -9,11 +11,13 @@ class ButtonDefaultWidget extends StatefulWidget {
     this.onTap,
     required this.title,
     this.isActive = true,
+    this.hasAnimation = true,
   });
 
   final String title;
   final Color? color;
   final bool isActive;
+  final bool hasAnimation;
   final VoidCallback? onTap;
 
   @override
@@ -28,8 +32,8 @@ class _ButtonDefaultWidgetState extends State<ButtonDefaultWidget> {
     final Size size = MediaQuery.sizeOf(context);
     return GestureDetector(
       onTap: widget.isActive ? widget.onTap : null,
-      onTapDown: widget.isActive ? (_) => setState(() => _opacity = 0.08) : null,
-      onTapUp: widget.isActive ? (_) => Future.delayed(const Duration(milliseconds: 150), () => setState(() => _opacity = 1.0)) : null,
+      onTapDown: widget.hasAnimation ? widget.isActive ? (_) => setState(() => _opacity = 0.08) : null : null,
+      onTapUp: widget.hasAnimation ? widget.isActive ? (_) => Future.delayed(const Duration(milliseconds: 150), () => setState(() => _opacity = 1.0)) : null : null,
       child: AnimatedOpacity(
         curve: Curves.fastEaseInToSlowEaseOut,
         opacity: _opacity,
@@ -41,7 +45,10 @@ class _ButtonDefaultWidgetState extends State<ButtonDefaultWidget> {
             borderRadius: BorderRadius.circular(10),
             color: widget.isActive ? 
               widget.color ?? Theme.of(context).colorScheme.secondary :
-              Theme.of(context).colorScheme.onSurface.withOpacity(.04),
+              PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
+                Theme.of(context).colorScheme.onSurface.withOpacity(.05) :
+                Theme.of(context).colorScheme.onSurface.withOpacity(.08),
+              // Theme.of(context).colorScheme.onSurface.withOpacity(.04),
           ),
           child: Center(
             child: Text(
