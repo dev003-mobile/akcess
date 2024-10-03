@@ -10,4 +10,7 @@ export '../components/sign_up_components/choose_your_country_component.dart';
 export '../components/sign_up_components/drop_button_country_component.dart';
 export '../../../../core/presenter/common/widgets/button_detault_widget.dart';
 export '../../../../core/presenter/common/widgets/custom_textfield_widget.dart';
+export '../components/verification_otp_components/otp_textfields_component.dart';
+export '../components/verification_otp_components/resend_otp_code_component.dart';
 export '../../../../core/presenter/common/widgets/single_otp_textfield_widget.dart';
+export '../components/verification_otp_components/title_and_description_otp_component.dart';

@@ -3,8 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class VerificationOTPStore {
+  late FocusNode firstCodeFocusNode = FocusNode();
+  late FocusNode secondCodeFocusNode = FocusNode();
+  late FocusNode thirdCodeFocusNode = FocusNode();
+  late FocusNode fourthCodeFocusNode = FocusNode();
+
+  late TextEditingController firstCodeEditingController = TextEditingController();
+  late TextEditingController secondCodeEditingController = TextEditingController();
+  late TextEditingController thirdCodeEditingController = TextEditingController();
+  late TextEditingController fourthCodeEditingController = TextEditingController();
+
   Timer? timer;
 
+  late ValueNotifier<String> otp;
   late ValueNotifier<int> seconds;
 
   String formatTime(int seconds) {

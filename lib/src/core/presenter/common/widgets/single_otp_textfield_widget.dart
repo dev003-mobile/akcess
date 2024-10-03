@@ -61,7 +61,7 @@ class SingleOTPTextfieldWidget extends StatelessWidget {
           ),
           fillColor: PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
             Theme.of(context).colorScheme.onSecondary.withOpacity(.3) :
-            Theme.of(context).colorScheme.onSecondary.withOpacity(.1),
+            Theme.of(context).colorScheme.onSecondaryContainer.withOpacity(.06),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 0.5,

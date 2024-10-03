@@ -5,4 +5,6 @@ class AppImageConstants {
   static String logoSecondaryWithoutBgImage = "assets/images/logo-secondary-without-bg.svg";
   static String bgAuthImage = "assets/images/bg-auth.png";
   static String googleImage = "assets/images/google.svg";
+  static String mailImage = "assets/images/mail.svg";
+  static String messageSquareTextImage = "assets/images/message-square-text.svg";
 }

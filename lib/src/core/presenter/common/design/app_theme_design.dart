@@ -19,7 +19,8 @@ class AppThemeDesign {
       onTertiary:Color(0xFF212121) ,
       surface: Color(0xFFFFFFFF),
       onSurface: Color(0xFF212121),
-      onPrimaryContainer: Color(0xFF212121)
+      onPrimaryContainer: Color(0xFF212121),
+      onSecondaryContainer: Color(0XFF000000)
     )
   );
   
@@ -41,7 +42,8 @@ class AppThemeDesign {
       onTertiary:Color(0xFFFFFFFF),
       surface: Color(0xFF212121),
       onSurface: Color(0xFFFFFFFF),
-      onPrimaryContainer: Color(0xFF212121)
+      onPrimaryContainer: Color(0xFF212121),
+      onSecondaryContainer: Color(0XFF440890)
     )
   );
 }

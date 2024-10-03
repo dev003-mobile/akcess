@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import '../../../module/auth_module/_stores/check_your_otp_store.dart';
 import '../../external/servers/api_server.dart';
 import '../../presenter/utils/clients/http_client_imp.dart';
 import '../../../module/auth_module/_stores/auth_store.dart';
@@ -22,5 +23,6 @@ class LocatorService {
     locator.registerLazySingleton<ChooseForgotMethodStore>(() => ChooseForgotMethodStore());
     locator.registerLazySingleton<ForgotPhoneNumberMethodStore>(() => ForgotPhoneNumberMethodStore());
     locator.registerLazySingleton<VerificationOTPStore>(() => VerificationOTPStore());
+    locator.registerLazySingleton<CheckYourOtpStore>(() => CheckYourOtpStore());
   }
 }

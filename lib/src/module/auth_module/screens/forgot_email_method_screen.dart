@@ -19,6 +19,7 @@ class ForgotEmailMethodScreen extends StatefulWidget {
 
 class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
   final FocusNode _emailFocusNode = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   void initState() {
@@ -30,6 +31,7 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
   void dispose() {
     super.dispose();
     _emailFocusNode.dispose();
+    _emailController.dispose();
     widget._store.isValidEmail.dispose();
   }
 
@@ -98,6 +100,7 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
                           return CustomTextfieldWidget(
                             enableBorder: false,
                             focusNode: _emailFocusNode,
+                            controller: _emailController,
                             textInputAction: TextInputAction.done,
                             keyboardType: TextInputType.emailAddress,
                             title: AppLocalizations.of(context)!.email,
@@ -127,21 +130,29 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
                 ),
                 Expanded(
                   flex: 0,
-                  child: ValueListenableBuilder<bool>(
-                    valueListenable: widget._store.isValidEmail,
-                    builder: (_, value, __) {
-                      return ButtonDefaultWidget(
-                        hasAnimation: false,
-                        onTap: () => Get.offNamed(AppNameRoute.verificationOTPScreen),
-                        isActive: value,
-                        title: AppLocalizations.of(context)!.send
-                      ).animate()
-                       .moveY(
-                        begin: 200,
-                        duration: const Duration(seconds: 1),
-                        curve: Curves.fastEaseInToSlowEaseOut
-                      );
-                    }
+                  child: SingleChildScrollView(
+                    child: ValueListenableBuilder<bool>(
+                      valueListenable: widget._store.isValidEmail,
+                      builder: (_, value, __) {
+                        return ButtonDefaultWidget(
+                          hasAnimation: false,
+                          onTap: () {
+                            _emailFocusNode.unfocus();
+                            Get.toNamed(
+                              AppNameRoute.checkYourOtpScreen,
+                              arguments: [true, _emailController.text]
+                            );
+                          },
+                          isActive: value,
+                          title: AppLocalizations.of(context)!.send
+                        ).animate()
+                         .moveY(
+                          begin: 200,
+                          duration: const Duration(seconds: 1),
+                          curve: Curves.fastEaseInToSlowEaseOut
+                        );
+                      }
+                    ),
                   ),
                 )
               ],
