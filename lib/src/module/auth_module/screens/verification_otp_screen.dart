@@ -88,6 +88,7 @@ class _VerificationOTPScreenState extends State<VerificationOTPScreen> {
                     valueListenable: widget._store.otp,
                     builder: (_, value, __) {
                       return ButtonDefaultWidget(
+                        hasAnimation: false,
                         onTap: () async {
                           showDialog(
                             context: context,

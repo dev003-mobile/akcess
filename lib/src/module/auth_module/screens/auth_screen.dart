@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'exports/auth_exports.dart';
 
@@ -43,24 +46,39 @@ class _AuthScreenState extends State<AuthScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
     return Scaffold(
-      body: SafeArea(
-        child: Animate(
-          effects: const <Effect>[FadeEffect(
-            curve: Curves.fastEaseInToSlowEaseOut
-          )],
-          child: SizedBox(
-            height: size.height,
-            width: size.width,
-            child: Stack(
-              children: <Widget>[
-                AuthBgComponent(),
-                AuthBgComponent(),
-                Align(alignment: Alignment.bottomLeft, child: AuthBgComponent()),
-                const ContentAuthComponent(),
-              ],
+      body: PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (_, __) => showModalBottomSheet(
+          context: context,
+          isDismissible: true,
+          scrollControlDisabledMaxHeightRatio: size.height * .38,
+          backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(.0),
+          builder: (_) => LogoutModalWidget(
+            onTap: () => exit(0),
+            buttonText: AppLocalizations.of(context)!.close,
+            title: AppLocalizations.of(context)!.logoutAppTitle,
+            description: AppLocalizations.of(context)!.logoutAppDescription,
+          )
+        ),
+        child: SafeArea(
+          child: Animate(
+            effects: const <Effect>[FadeEffect(
+              curve: Curves.fastEaseInToSlowEaseOut
+            )],
+            child: SizedBox(
+              height: size.height,
+              width: size.width,
+              child: Stack(
+                children: <Widget>[
+                  AuthBgComponent(),
+                  AuthBgComponent(),
+                  Align(alignment: Alignment.bottomLeft, child: AuthBgComponent()),
+                  const ContentAuthComponent(),
+                ],
+              ),
             ),
-          ),
-        )
+          )
+        ),
       ),
     );
   }

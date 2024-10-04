@@ -60,5 +60,10 @@
   "redefine" : "Redefinir",
   "weak" : "Fraca",
   "medium" : "Média",
-  "strong" : "Forte"
+  "strong" : "Forte",
+  "logoutAppTitle" : "Deseja sair?",
+  "logoutAppDescription" : "Você está prestes a sair do aplicativo. Certeza de que deseja mesmo?",
+  "close" : "Fechar",
+  "wantToCancelTheReset" : "Deseja cancelar?",
+  "wantToCancelTheResetDescription" : "Nenhuma alteração será feita e você poderá continuar utilizando sua senha atual. Deseja realmente cancelar?"
 }
