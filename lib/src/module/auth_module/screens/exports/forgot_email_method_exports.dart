@@ -1,6 +1,7 @@
 export '../../_stores/verification_otp_store.dart';
 export '../../_stores/forgot_email_method_store.dart';
 export '../../_stores/forgot_phone_number_method_store.dart';
+export '../../../../core/presenter/common/widgets/loading_widget.dart';
 export '../../../../core/presenter/common/routes/app_name_route.dart';
 export '../components/sign_up_components/show_popover_component.dart';
 export '../../../../core/presenter/common/design/app_style_design.dart';

@@ -36,6 +36,7 @@ class _VerificationOTPScreenState extends State<VerificationOTPScreen> {
   @override
   void dispose() {
     super.dispose();
+    widget._store.otp.dispose();
     widget._store.timer?.cancel();
     widget._store.seconds.dispose();
 
@@ -87,7 +88,18 @@ class _VerificationOTPScreenState extends State<VerificationOTPScreen> {
                     valueListenable: widget._store.otp,
                     builder: (_, value, __) {
                       return ButtonDefaultWidget(
-                        onTap: () {},
+                        onTap: () async {
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            barrierColor: Theme.of(context).colorScheme.onTertiaryContainer.withOpacity(.75),
+                            builder: (_) => const LoadingWidet()
+                          );
+                          Future.delayed(const Duration(seconds: 5), () {
+                            Get.back();
+                            Get.offNamed(AppNameRoute.redefinePasswordScreen);
+                          });
+                        },
                         isActive: value.trim().length == 4,
                         title: AppLocalizations.of(context)!.verify
                       ).animate()

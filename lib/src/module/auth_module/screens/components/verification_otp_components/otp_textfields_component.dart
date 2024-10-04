@@ -20,65 +20,77 @@ class _OTPTetfieldsComponentState extends State<OTPTetfieldsComponent> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          SingleOTPTextfieldWidget(
-            hintText: "0",
-            controller: widget._store.firstCodeEditingController,
-            onChanged: (value) {
-              if (value.length == 1) {
-                widget._store.otp.value += value;
-                FocusScope.of(context).nextFocus();
-              } else {
-                widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
-                FocusScope.of(context).unfocus();
-              }
-            },
-            focusNode: widget._store.firstCodeFocusNode,
-            textInputAction: TextInputAction.done,
+          FocusScope(
+            child: SingleOTPTextfieldWidget(
+              hintText: "0",
+              keyboardType: TextInputType.number,
+              controller: widget._store.firstCodeEditingController,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  widget._store.otp.value += value;
+                  FocusScope.of(context).requestFocus(widget._store.secondCodeFocusNode);
+                } else {
+                  widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
+                  widget._store.firstCodeFocusNode.unfocus();
+                }
+              },
+              focusNode: widget._store.firstCodeFocusNode,
+              textInputAction: TextInputAction.done,
+            ),
           ),
-          SingleOTPTextfieldWidget(
-            hintText: "0",
-            controller: widget._store.secondCodeEditingController,
-            onChanged: (value) {
-              if (value.length == 1) {
-                widget._store.otp.value += value;
-                FocusScope.of(context).nextFocus();
-              } else {
-                widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
-                FocusScope.of(context).previousFocus();                              
-              }
-            },
-            focusNode: widget._store.secondCodeFocusNode,
-            textInputAction: TextInputAction.done,
+          FocusScope(
+            child: SingleOTPTextfieldWidget(
+              hintText: "0",
+              keyboardType: TextInputType.number,
+              controller: widget._store.secondCodeEditingController,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  widget._store.otp.value += value;
+                  FocusScope.of(context).requestFocus(widget._store.thirdCodeFocusNode);
+                } else {
+                  widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
+                  FocusScope.of(context).requestFocus(widget._store.firstCodeFocusNode);                           
+                }
+              },
+              focusNode: widget._store.secondCodeFocusNode,
+              textInputAction: TextInputAction.done,
+            ),
           ),
-          SingleOTPTextfieldWidget(
-            hintText: "0",
-            controller: widget._store.thirdCodeEditingController,
-            onChanged: (value) {
-              if (value.length == 1) {
-                widget._store.otp.value += value;
-                FocusScope.of(context).nextFocus();
-              } else {
-                widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
-                FocusScope.of(context).previousFocus();                              
-              }
-            },
-            focusNode: widget._store.thirdCodeFocusNode,
-            textInputAction: TextInputAction.done,
+          FocusScope(
+            child: SingleOTPTextfieldWidget(
+              hintText: "0",
+              keyboardType: TextInputType.number,
+              controller: widget._store.thirdCodeEditingController,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  widget._store.otp.value += value;
+                  FocusScope.of(context).requestFocus(widget._store.fourthCodeFocusNode);
+                } else {
+                  widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
+                  FocusScope.of(context).requestFocus(widget._store.secondCodeFocusNode);                            
+                }
+              },
+              focusNode: widget._store.thirdCodeFocusNode,
+              textInputAction: TextInputAction.done,
+            ),
           ),
-          SingleOTPTextfieldWidget(
-            hintText: "0",
-            controller: widget._store.fourthCodeEditingController,
-            onChanged: (value) {
-              if (value.length == 1) {
-                widget._store.otp.value += value;
-                FocusScope.of(context).unfocus();
-              } else {
-                widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
-                FocusScope.of(context).previousFocus();                              
-              }
-            },
-            focusNode: widget._store.fourthCodeFocusNode,
-            textInputAction: TextInputAction.done,
+          FocusScope(
+            child: SingleOTPTextfieldWidget(
+              hintText: "0",
+              keyboardType: TextInputType.number,
+              controller: widget._store.fourthCodeEditingController,
+              onChanged: (value) {
+                if (value.trim().length == 1) {
+                  widget._store.otp.value += value;
+                  widget._store.fourthCodeFocusNode.unfocus();
+                } else {
+                  widget._store.otp.value = widget._store.otp.value.substring(0, widget._store.otp.value.length - 1);
+                  FocusScope.of(context).requestFocus(widget._store.thirdCodeFocusNode);                              
+                }
+              },
+              focusNode: widget._store.fourthCodeFocusNode,
+              textInputAction: TextInputAction.done,
+            ),
           ),
         ],
       ),

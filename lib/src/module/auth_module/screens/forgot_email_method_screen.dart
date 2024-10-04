@@ -40,17 +40,17 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
     final Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: SafeArea(
-        child: SizedBox(
-          height: size.height,
-          width: size.width,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: size.height * .05,
-              horizontal: size.width * .07
-            ),
-            child: Column(
-              children: <Widget>[
-                Expanded(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: size.height * .05,
+            horizontal: size.width * .07
+          ),
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: <Widget>[
+              SizedBox(
+                child: Align(
+                  alignment: Alignment.topCenter,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -128,35 +128,32 @@ class _ForgotEmailMethodScreenState extends State<ForgotEmailMethodScreen> {
                     ],
                   ),
                 ),
-                Expanded(
-                  flex: 0,
-                  child: SingleChildScrollView(
-                    child: ValueListenableBuilder<bool>(
-                      valueListenable: widget._store.isValidEmail,
-                      builder: (_, value, __) {
-                        return ButtonDefaultWidget(
-                          hasAnimation: false,
-                          onTap: () {
-                            _emailFocusNode.unfocus();
-                            Get.toNamed(
-                              AppNameRoute.checkYourOtpScreen,
-                              arguments: [true, _emailController.text]
-                            );
-                          },
-                          isActive: value,
-                          title: AppLocalizations.of(context)!.send
-                        ).animate()
-                         .moveY(
-                          begin: 200,
-                          duration: const Duration(seconds: 1),
-                          curve: Curves.fastEaseInToSlowEaseOut
+              ),
+              SizedBox(
+                child: ValueListenableBuilder<bool>(
+                  valueListenable: widget._store.isValidEmail,
+                  builder: (_, value, __) {
+                    return ButtonDefaultWidget(
+                      hasAnimation: false,
+                      onTap: () {
+                        _emailFocusNode.unfocus();
+                        Get.offNamed(
+                          AppNameRoute.checkYourOtpScreen,
+                          arguments: [true, _emailController.text]
                         );
-                      }
-                    ),
-                  ),
-                )
-              ],
-            ),
+                      },
+                      isActive: value,
+                      title: AppLocalizations.of(context)!.send
+                    ).animate()
+                      .moveY(
+                      begin: 200,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.fastEaseInToSlowEaseOut
+                    );
+                  }
+                ),
+              ),
+            ],
           ),
         ),
       ),

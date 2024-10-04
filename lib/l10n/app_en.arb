@@ -51,5 +51,14 @@
   "messages" : "Messages",
   "emails" : "E-mails",
   "unableToOpenGmail" : "Unable to open Gmail",
-  "unableToOpenMessages" : "Unable to open messages"
+  "unableToOpenMessages" : "Unable to open messages",
+  "resetYourPassword" : "Reset your password",
+  "resetYourPasswordDescription" : "Your new password must be different from previous used passwords.",
+  "oldPassword" : "Old password",
+  "newPassword" : "New password",
+  "confirmPassword" : "Confirm password",
+  "redefine" : "Redefine",
+  "weak" : "Weak",
+  "medium" : "Medium",
+  "strong" : "Strong"
 }

@@ -12,6 +12,7 @@ class SingleOTPTextfieldWidget extends StatelessWidget {
     this.onChanged,
     this.controller,
     this.onSubmitted,
+    this.keyboardType,
     this.autofocus = false,
     this.textInputAction = TextInputAction.next,
   });
@@ -20,6 +21,7 @@ class SingleOTPTextfieldWidget extends StatelessWidget {
   final String? hintText;
   final FocusNode? focusNode;
   final Function(String)? onChanged;
+  final TextInputType? keyboardType;
   final Function(String)? onSubmitted;
   final TextInputAction? textInputAction;
   final TextEditingController? controller;
@@ -35,8 +37,8 @@ class SingleOTPTextfieldWidget extends StatelessWidget {
         onChanged: onChanged,
         controller: controller,
         onSubmitted: onSubmitted,
+        keyboardType: keyboardType,
         textInputAction: textInputAction,
-        keyboardType: TextInputType.number,
         textAlignVertical: TextAlignVertical.center,
         inputFormatters: <TextInputFormatter>[
           LengthLimitingTextInputFormatter(1),

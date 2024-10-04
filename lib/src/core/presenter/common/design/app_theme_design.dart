@@ -20,7 +20,11 @@ class AppThemeDesign {
       surface: Color(0xFFFFFFFF),
       onSurface: Color(0xFF212121),
       onPrimaryContainer: Color(0xFF212121),
-      onSecondaryContainer: Color(0XFF000000)
+      onSecondaryContainer: Color(0XFF000000),
+      onTertiaryContainer: Color(0XFF000000),
+      onPrimaryFixed: Colors.red,
+      onSecondaryFixed: Color(0xFFFFB509),
+      onTertiaryFixed: Color(0xFF2FFF14),
     )
   );
   
@@ -43,7 +47,11 @@ class AppThemeDesign {
       surface: Color(0xFF212121),
       onSurface: Color(0xFFFFFFFF),
       onPrimaryContainer: Color(0xFF212121),
-      onSecondaryContainer: Color(0XFF440890)
+      onSecondaryContainer: Color(0XFF440890),
+      onTertiaryContainer: Color(0XFF000000),
+      onPrimaryFixed: Colors.red,
+      onSecondaryFixed: Color(0xFFFFB509),
+      onTertiaryFixed: Color(0xFF2FFF14),
     )
   );
 }

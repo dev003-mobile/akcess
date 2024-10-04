@@ -10,12 +10,17 @@ class IconBackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
     return SizedBox(
+      height: size.height * .04,
+      width: size.width * .15,
       child: GestureDetector(
         onTap: onTap,
-        child: Icon(
-          size: size.height * .02,
-          LucideIcons.moveLeft,
-          color: Theme.of(context).colorScheme.onSurface,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Icon(
+            size: size.height * .02,
+            LucideIcons.moveLeft,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
       ),
     );
