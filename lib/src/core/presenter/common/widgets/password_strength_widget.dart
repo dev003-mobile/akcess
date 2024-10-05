@@ -30,7 +30,7 @@ class PasswordStrengthWidget extends StatelessWidget {
                   children: <Widget>[
                     AnimatedContainer(
                       width: size.width * .17,
-                      height: size.height * .005,
+                      height: size.height * .0045,
                       duration: const Duration(milliseconds: 500),
                       curve: Curves.fastEaseInToSlowEaseOut,
                       decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class PasswordStrengthWidget extends StatelessWidget {
                     SizedBox(width: size.width * .01),
                     AnimatedContainer(
                       width: size.width * .17,
-                      height: size.height * .005,
+                      height: size.height * .0045,
                       duration: const Duration(milliseconds: 500),
                       curve: Curves.fastEaseInToSlowEaseOut,
                       decoration: BoxDecoration(
@@ -64,7 +64,7 @@ class PasswordStrengthWidget extends StatelessWidget {
                     SizedBox(width: size.width * .01),
                     AnimatedContainer(
                       width: size.width * .17,
-                      height: size.height * .005,
+                      height: size.height * .0045,
                       duration: const Duration(milliseconds: 500),
                       curve: Curves.fastEaseInToSlowEaseOut,
                       decoration: BoxDecoration(
@@ -97,7 +97,7 @@ class PasswordStrengthWidget extends StatelessWidget {
                    .fadeIn(
                     duration: const Duration(seconds: 1),
                     curve: Curves.fastEaseInToSlowEaseOut
-                   )
+                  )
                 ),
               ),
             ],

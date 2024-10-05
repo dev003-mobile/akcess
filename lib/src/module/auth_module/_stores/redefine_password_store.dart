@@ -5,6 +5,12 @@ import '../../../core/presenter/utils/context/app_context.dart';
 import '../../../core/presenter/utils/enums/password_strength_enum.dart';
 
 class RedefinePasswordStore {
+  late ValueNotifier<bool> loadingPasswordReset;
+
+  late ValueNotifier<bool> oldPasswordHasFocus;
+  late ValueNotifier<bool> newPasswordHasFocus;
+  late ValueNotifier<bool> confirmPasswordHasFocus;
+
   late ValueNotifier<String> oldPassword;
   late ValueNotifier<String> newPasswordStrength;
   late ValueNotifier<String> confirmPasswordStrength;

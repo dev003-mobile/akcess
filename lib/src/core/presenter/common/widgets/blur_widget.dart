@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class BlurWidget extends StatelessWidget {
   const BlurWidget({
@@ -24,6 +25,10 @@ class BlurWidget extends StatelessWidget {
         width: size.width,
         color: color ?? Theme.of(context).colorScheme.surface.withOpacity(.3),
       ),
-    );
+    ).animate()
+     .fadeIn(
+      duration: const Duration(seconds: 1),
+      curve: Curves.fastEaseInToSlowEaseOut
+     );
   }
 }

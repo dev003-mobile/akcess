@@ -94,7 +94,10 @@ class _VerificationOTPScreenState extends State<VerificationOTPScreen> {
                             context: context,
                             barrierDismissible: false,
                             barrierColor: Theme.of(context).colorScheme.onTertiaryContainer.withOpacity(.75),
-                            builder: (_) => const LoadingWidet()
+                            builder: (_) => const PopScope(
+                              canPop: false,
+                              child: LoadingWidet()
+                            )
                           );
                           Future.delayed(const Duration(seconds: 5), () {
                             Get.back();

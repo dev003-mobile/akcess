@@ -65,5 +65,6 @@
   "logoutAppDescription" : "You're about to leave the application. Are you sure you want to?",
   "close" : "Close",
   "wantToCancelTheReset" : "Want to cancel?",
-  "wantToCancelTheResetDescription" : "No changes will be made and you can continue using your current password. Do you really want to cancel?"
+  "wantToCancelTheResetDescription" : "No changes will be made and you can continue using your current password. Do you really want to cancel?",
+  "passwordChanged" : "Password changed"
 }
