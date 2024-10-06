@@ -7,7 +7,6 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../core/presenter/common/widgets/custom_toast_widget.dart';
 import 'exports/auth_exports.dart';
 
 class RedefinePasswordScreen extends StatefulWidget {

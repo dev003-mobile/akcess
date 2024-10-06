@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../design/app_style_design.dart';
 
@@ -18,6 +19,8 @@ class CustomTextfieldWidget extends StatelessWidget {
     this.keyboardType,
     required this.title,
     this.contentPadding,
+    this.inputFormatters,
+    this.readOnly = false,
     this.autocorrect = true,
     this.obscureText = false,
     this.enableBorder = false,
@@ -26,6 +29,7 @@ class CustomTextfieldWidget extends StatelessWidget {
   });
 
   final String title;
+  final bool readOnly;
   final bool autocorrect;
   final bool obscureText;
   final Color? fillColor;
@@ -43,6 +47,7 @@ class CustomTextfieldWidget extends StatelessWidget {
   final TextInputAction? textInputAction;
   final TextEditingController? controller;
   final EdgeInsetsGeometry? contentPadding;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +68,7 @@ class CustomTextfieldWidget extends StatelessWidget {
         SizedBox(
           child: TextField(
             onTap: onTap,
+            readOnly: readOnly,
             focusNode: focusNode,
             onChanged: onChanged,
             controller: controller,
@@ -70,6 +76,7 @@ class CustomTextfieldWidget extends StatelessWidget {
             obscureText: obscureText,
             onSubmitted: onSubmitted,
             keyboardType: keyboardType,
+            inputFormatters: inputFormatters,
             textInputAction: textInputAction,
             obscuringCharacter: obscuringCharacter,
             textAlignVertical: TextAlignVertical.center,

@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -8,13 +7,10 @@ import '../common/routes/app_routes.dart';
 import '../utils/context/app_context.dart';
 import '../common/routes/app_name_route.dart';
 import '../common/design/app_theme_design.dart';
-import '../utils/device_theme/device_theme.dart';
 import '../utils/constants/app_name_constants.dart';
 
 class AppWidget extends StatefulWidget {
-  AppWidget({super.key});
-
-  final DeviceTheme _deviceTheme = GetIt.I.get<DeviceTheme>();
+  const AppWidget({super.key});
 
   @override
   State<AppWidget> createState() => _AppWidgetState();
@@ -30,7 +26,7 @@ class _AppWidgetState extends State<AppWidget> with WidgetsBindingObserver {
   @override
   void didChangePlatformBrightness() {
     super.didChangePlatformBrightness();
-    setState(() => widget._deviceTheme.updateTheme(PlatformDispatcher.instance.platformBrightness));
+    setState(() {});
   }
 
   @override
@@ -46,7 +42,7 @@ class _AppWidgetState extends State<AppWidget> with WidgetsBindingObserver {
       onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
       child: GetMaterialApp(
         enableLog: true,
-        theme: widget._deviceTheme.currentTheme == ThemeData.light() ? 
+        theme: PlatformDispatcher.instance.platformBrightness == Brightness.light ? 
           AppThemeDesign.lightTheme : AppThemeDesign.darkTheme,
         getPages: AppRoutes.routes,
         title: AppNameConstants.appName,

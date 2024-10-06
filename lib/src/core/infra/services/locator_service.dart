@@ -5,6 +5,7 @@ import '../../presenter/utils/clients/http_client_imp.dart';
 import '../../../module/auth_module/_stores/auth_store.dart';
 import '../../presenter/utils/device_theme/device_theme.dart';
 import '../../../module/auth_module/_stores/check_your_otp_store.dart';
+import '../../../module/auth_module/_stores/finish_sign_up_store.dart';
 import '../../../module/auth_module/_stores/verification_otp_store.dart';
 import '../../../module/auth_module/_stores/redefine_password_store.dart';
 import '../../../module/auth_module/_stores/forgot_email_method_store.dart';
@@ -26,5 +27,6 @@ class LocatorService {
     locator.registerLazySingleton<VerificationOTPStore>(() => VerificationOTPStore());
     locator.registerLazySingleton<CheckYourOtpStore>(() => CheckYourOtpStore());
     locator.registerLazySingleton<RedefinePasswordStore>(() => RedefinePasswordStore());
+    locator.registerLazySingleton<FinishSignUpStore>(() => FinishSignUpStore());
   }
 }

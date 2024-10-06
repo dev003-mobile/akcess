@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-class ButtonCloseCountriesComponent extends StatelessWidget {
-  const ButtonCloseCountriesComponent({super.key});
+class ButtonCloseWidget extends StatelessWidget {
+  const ButtonCloseWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

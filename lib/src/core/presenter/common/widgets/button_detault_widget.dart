@@ -34,6 +34,7 @@ class _ButtonDefaultWidgetState extends State<ButtonDefaultWidget> {
       onTap: widget.isActive ? widget.onTap : null,
       onTapDown: widget.hasAnimation ? widget.isActive ? (_) => setState(() => _opacity = 0.08) : null : null,
       onTapUp: widget.hasAnimation ? widget.isActive ? (_) => Future.delayed(const Duration(milliseconds: 150), () => setState(() => _opacity = 1.0)) : null : null,
+      // onLongPress: () => setState(() => _opacity = 1.0),
       child: AnimatedOpacity(
         curve: Curves.fastEaseInToSlowEaseOut,
         opacity: _opacity,

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../utils/enums/type_toast_enum.dart';
 import '../design/app_style_design.dart';
 
 class CustomToastWidget {
   static Future<void> showToast({
     required BuildContext context,
-    required String title
+    required String title,
+    TypeToastEnum? type = TypeToastEnum.sucess
   }) async {
     final size = MediaQuery.sizeOf(context);
     final OverlayState overlayState = Overlay.of(context);
@@ -52,12 +54,17 @@ class CustomToastWidget {
                             children: <Widget>[
                               CircleAvatar(
                                 radius: size.height * .014,
-                                backgroundColor: Theme.of(context).colorScheme.onTertiaryFixed,
+                                backgroundColor: 
+                                  type == TypeToastEnum.sucess ? Theme.of(context).colorScheme.onTertiaryFixed :
+                                  type == TypeToastEnum.warning ? Theme.of(context).colorScheme.onSecondaryFixed :
+                                  Theme.of(context).colorScheme.onPrimaryFixed,
                                 child: Center(
                                   child: Icon(
                                     size: size.height * .016,
-                                    LucideIcons.checkCircle,
-                                    color: Theme.of(context).colorScheme.secondary,
+                                    type == TypeToastEnum.sucess ? LucideIcons.checkCircle :
+                                    type == TypeToastEnum.warning ? LucideIcons.info :
+                                    LucideIcons.x,
+                                    color: Theme.of(context).colorScheme.tertiary,
                                   ),
                                 ),
                               ),

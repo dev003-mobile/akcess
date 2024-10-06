@@ -7,4 +7,5 @@ class AppNameRoute {
   static String checkYourOtpScreen = "/check_your_otp_screen";
   static String verificationOTPScreen = "/verification_otp_screen";
   static String redefinePasswordScreen = "/redefine_password_screen";
+  static String finishSignUpScreen = "/finish_sign_up_screen";
 }

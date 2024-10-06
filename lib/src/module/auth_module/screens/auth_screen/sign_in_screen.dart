@@ -1,8 +1,9 @@
+import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'exports/auth_exports.dart';
+import '../exports/auth_exports.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});
@@ -57,7 +58,21 @@ class _SignInScreenState extends State<SignInScreen> {
           CheckBoxAndForgotComponent(),
           SizedBox(height: size.height * .035),
           ButtonDefaultWidget(
-            onTap: () {},
+            onTap: () async {
+              widget._store.loading.value = true;
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                barrierColor: Theme.of(context).colorScheme.onTertiaryContainer.withOpacity(.75),
+                builder: (_) => const PopScope(
+                  canPop: false,
+                  child: LoadingWidet()
+                )
+              );
+              await Future.delayed(const Duration(seconds: 5));
+              Get.back();
+              widget._store.loading.value = false;
+            },            
             title: AppLocalizations.of(context)!.signIn
           ),
           SizedBox(height: size.height * .025),

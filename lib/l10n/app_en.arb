@@ -66,5 +66,20 @@
   "close" : "Close",
   "wantToCancelTheReset" : "Want to cancel?",
   "wantToCancelTheResetDescription" : "No changes will be made and you can continue using your current password. Do you really want to cancel?",
-  "passwordChanged" : "Password changed"
+  "passwordChanged" : "Password changed",
+  "differentPasswords" : "Different passwords. Match them",
+  "identityCard" : "Identity card",
+  "invalidEmailAddress" : "Invalid email address",
+  "invalidIdentityCard" : "Invalid identity card",
+  "enterYourFullName" : "Enter your full name",
+  "selectACountry" : "Select a country",
+  "yesCancel" : "Yes, cancel",
+  "unsubscribe" : "Unsubscribe?",
+  "unsubscribeDescription" : "Are you sure you want to cancel your registration? All the information you have entered so far will be lost.",
+  "additionalData" : "Additional data",
+  "birthDate" : "Birth date",
+  "gender" : "Gender",
+  "selectYourGender" : "Your gender",
+  "yourAge" : "Your age",
+  "select" : "Select"
 }

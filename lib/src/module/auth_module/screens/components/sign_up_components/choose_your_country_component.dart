@@ -22,7 +22,7 @@ class ChooseYourCountryComponent extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 children: <Widget>[
                   ContainerListCountriesComponent(),
-                  const ButtonCloseCountriesComponent()
+                  const ButtonCloseWidget()
                 ],
               ),
             ),

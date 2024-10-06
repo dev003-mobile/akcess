@@ -27,7 +27,7 @@ class AuthButtonOptionComponent extends StatelessWidget {
             color: isSelected ? 
               Theme.of(context).colorScheme.secondary : 
               Theme.of(context).colorScheme.secondary.withOpacity(.0),
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: BorderRadius.circular(7)
           ),
           child: Center(
             child: Text(

@@ -66,5 +66,20 @@
   "close" : "Fechar",
   "wantToCancelTheReset" : "Deseja cancelar?",
   "wantToCancelTheResetDescription" : "Nenhuma alteração será feita e você poderá continuar utilizando sua senha atual. Deseja realmente cancelar?",
-  "passwordChanged" : "Senha redefinida"
+  "passwordChanged" : "Senha redefinida",
+  "differentPasswords" : "Senhas diferentes. Iguale-os",
+  "identityCard" : "Bilhete de identidade",
+  "invalidEmailAddress" : "E-mail inválido",
+  "invalidIdentityCard" : "BI inválido",
+  "enterYourFullName" : "Informe seu nome completo",
+  "selectACountry" : "Selecione o país",
+  "yesCancel" : "Sim, cancelar",
+  "unsubscribe" : "Cancelar cadastro?",
+  "unsubscribeDescription" : "Tem certeza de que deseja cancelar o cadastro? Todas as informações inseridas até agora serão perdidas.",
+  "additionalData" : "Dados adicionais",
+  "birthDate" : "Data de nascimento",
+  "gender" : "Gênero",
+  "selectYourGender" : "Seu gênero",
+  "yourAge" : "Sua idade",
+  "select" : "Selecionar"
 }
