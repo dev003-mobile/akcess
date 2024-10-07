@@ -9,7 +9,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../exports/auth_exports.dart';
 import 'add_data_sign_up_screen.dart';
-import '../../_stores/finish_sign_up_store.dart';
 import 'choose_your_picture_screen.dart';
 
 class FinishSignUpScreen extends StatefulWidget {
@@ -98,7 +97,7 @@ class _FinishSignUpScreenState extends State<FinishSignUpScreen> {
                       physics: const NeverScrollableScrollPhysics(),
                       children: <Widget>[
                         AddDataSignUpScreen(),
-                        const ChooseYourPictureScreen(),
+                        ChooseYourPictureScreen(),
                         Container(),
                       ],
                     ),

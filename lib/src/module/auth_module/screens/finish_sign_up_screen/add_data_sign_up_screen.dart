@@ -152,7 +152,7 @@ class _AddDataSignUpScreenState extends State<AddDataSignUpScreen> {
                               itemCount: value.length,
                               itemBuilder: (_, index) => InkWell(
                                 onTap: () {
-                                  _addressFocusNode.unfocus();
+                                  _cityFocusNode.unfocus();
                                   widget._store.citiesPlaces.value = <PlaceDTO>[];
                                   _cityController.text = "${value[index].properties?.name}, ${value[index].properties?.country}";
                                 },

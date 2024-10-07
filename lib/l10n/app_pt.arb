@@ -86,5 +86,6 @@
   "checkYourInternetConnection" : "Verifique sua ligação à internet",
   "thereWasAProblem" : "Ocorreu um problema. Tente mais tarde",
   "city" : "Cidade",
-  "chooseAPhoto" : "Selecione uma foto"
+  "chooseAPhoto" : "Selecione uma foto",
+  "grantPermission" : "Conceder permissão"
 }

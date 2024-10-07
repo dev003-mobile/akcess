@@ -31,6 +31,8 @@
   <key>NSPhotoLibraryUsageDescription</key>
   <string>In order to access your photo library</string>
 	<key>UISupportedInterfaceOrientations</key>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Example usage description</string>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

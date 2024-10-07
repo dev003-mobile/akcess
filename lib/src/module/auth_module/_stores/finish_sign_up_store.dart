@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_gallery/photo_gallery.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../../core/domain/exceptions/failure_exception.dart';
 import '../../../core/domain/entities/place_entities/place_entity.dart';
@@ -18,6 +20,11 @@ class FinishSignUpStore {
 
   late ValueNotifier<List<PlaceEntity>> citiesPlaces;
   late ValueNotifier<List<PlaceEntity>> addressPlaces;
+
+  late ValueNotifier<bool> hasMorePhotos;
+  late ValueNotifier<bool> isLoadingPhotos;
+  late ValueNotifier<int> currentPagePhotos;
+  late ValueNotifier<List<Medium>> images;
 
   Future<(List<PlaceEntity>?, String?)> getCitiesPlaces(String place) async {
     String? exception;
@@ -62,6 +69,47 @@ class FinishSignUpStore {
       return (<PlaceEntity>[], null);
     } finally {
       loadingAddressPlaces.value = false;
+    }
+  }
+
+  Future<void> fetchGalleryPhotos() async {
+    try {
+      if (await Permission.storage.request().isGranted) {
+          final List<Album> albums = await PhotoGallery.listAlbums(mediumType: MediumType.image);
+
+          if (albums.isNotEmpty) {
+            final Album album = albums[0];
+            final MediaPage mediaPage = await album.listMedia();
+            images.value.addAll(mediaPage.items);
+            isLoadingPhotos.value = false;
+          }
+        } else {
+          await Permission.storage.request();
+        }
+
+      // if (permission.isAuth) {
+      //   isLoadingPhotos.value = true;
+
+      //   final List<AssetPathEntity> albums = await PhotoManager.getAssetPathList(type: RequestType.image);
+      //   if (albums.isNotEmpty) {
+      //     final List<AssetEntity> albumImages = await albums[0].getAssetListPaged(
+      //       size: 30,
+      //       page: currentPagePhotos.value,
+      //     );
+
+      //     if (albumImages.isEmpty) {
+      //       hasMorePhotos.value = false;
+      //     } else {
+      //       currentPagePhotos.value++;
+      //       images.value.addAll(albumImages);
+      //     }
+
+      //   }
+      // } else {
+      //   await Permission.storage.request();
+      // }    
+    } catch (e) {
+      isLoadingPhotos.value = false;
     }
   }
 }

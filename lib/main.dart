@@ -10,5 +10,5 @@ void main() async {
   DeviceGlobalConfig();
   LocatorService.initialize();
   Animate.restartOnHotReload = true;
-  runApp(AppWidget());
+  runApp(const AppWidget());
 }
