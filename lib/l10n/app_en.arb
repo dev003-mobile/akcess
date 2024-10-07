@@ -81,5 +81,10 @@
   "gender" : "Gender",
   "selectYourGender" : "Your gender",
   "yourAge" : "Your age",
-  "select" : "Select"
+  "select" : "Select",
+  "address" : "Address",
+  "checkYourInternetConnection" : "Check your internet connection",
+  "thereWasAProblem" : "There was a problem. Try again later",
+  "city" : "City",
+  "chooseAPhoto" : "Choose a photo"
 }

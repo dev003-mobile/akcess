@@ -10,6 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../exports/auth_exports.dart';
 import 'add_data_sign_up_screen.dart';
 import '../../_stores/finish_sign_up_store.dart';
+import 'choose_your_picture_screen.dart';
 
 class FinishSignUpScreen extends StatefulWidget {
   FinishSignUpScreen({super.key});
@@ -60,113 +61,120 @@ class _FinishSignUpScreenState extends State<FinishSignUpScreen> {
           child: SizedBox(
             height: size.height,
             width: size.width,
-            child: Column(
+            child: Stack(
+              alignment: Alignment.center,
               children: <Widget>[
-                Expanded(
-                  flex: 0,
-                  child: ValueListenableBuilder<int>(
-                    valueListenable: widget._store.currentPage,
-                    builder: (_, value, __) {
-                      return TweenAnimationBuilder<double>(
-                        curve: Curves.fastOutSlowIn,
-                        duration: const Duration(seconds: 1),
-                        tween: Tween<double>(begin: 0.0, end: value / 4),
-                        builder: (_, value, __) {
-                          return LinearProgressIndicator(
-                            value: value,
-                            minHeight: size.height * .004,
-                            valueColor: AlwaysStoppedAnimation<Color?>(Theme.of(context).colorScheme.secondary),
-                            backgroundColor: PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
-                              Theme.of(context).colorScheme.onSurface.withOpacity(.05) :
-                              Theme.of(context).colorScheme.onSurface.withOpacity(.15),
-                          );
-                        }
-                      );
-                    }
-                  ),
-                ),
-                Expanded(
-                  child: PageView(
-                    controller: _pageController,
-                    allowImplicitScrolling: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: <Widget>[
-                      AddDataSignUpScreen(),
-                      Container(),
-                      Container(),
-                      Container(),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 0,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: size.width * .07,
-                      right: size.width * .07,
-                      bottom: size.height * .05,
-                    ),
+                SizedBox(
+                  child: Align(
+                    alignment: Alignment.topCenter,
                     child: ValueListenableBuilder<int>(
                       valueListenable: widget._store.currentPage,
                       builder: (_, value, __) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Expanded(
-                              flex: 0,
-                              child: Visibility(
-                                visible: value > 1,
-                                child: ButtonCircleWidget(
-                                  onTap: () async {
-                                    if (value > 1) {
-                                      if (mounted) {
-                                        widget._store.currentPage.value = widget._store.currentPage.value - 1;
-                                        await _pageController.previousPage(
-                                          duration: const Duration(seconds: 1), 
-                                          curve: Curves.fastEaseInToSlowEaseOut
-                                        );
-                                      }
-                                    }
-                                  },
-                                  icon: LucideIcons.moveLeft,
-                                ).animate()
-                                 .moveX(
-                                  begin: -200,
-                                  duration: const Duration(seconds: 1),
-                                  curve: Curves.fastEaseInToSlowEaseOut
-                                ),
-                              )
-                            ),
-                            Expanded(
-                              flex: 0,
-                              child: Visibility(
-                                visible: value < 4,
-                                child: ButtonCircleWidget(
-                                  onTap: () async {
-                                    if (value < 4) {
-                                      if (mounted) {
-                                        widget._store.currentPage.value = widget._store.currentPage.value + 1;
-                                        await _pageController.nextPage(
-                                          duration: const Duration(milliseconds: 1500), 
-                                          curve: Curves.fastEaseInToSlowEaseOut
-                                        );
-                                      }
-                                    }
-                                  },
-                                ).animate()
-                                 .moveX(
-                                  begin: 200,
-                                  duration: const Duration(seconds: 1),
-                                  curve: Curves.fastEaseInToSlowEaseOut
-                                ),
-                              )
-                            ),
-                          ],
+                        return TweenAnimationBuilder<double>(
+                          curve: Curves.fastOutSlowIn,
+                          duration: const Duration(seconds: 1),
+                          tween: Tween<double>(begin: 0.0, end: value / 3),
+                          builder: (_, value, __) {
+                            return LinearProgressIndicator(
+                              value: value,
+                              minHeight: size.height * .004,
+                              valueColor: AlwaysStoppedAnimation<Color?>(Theme.of(context).colorScheme.secondary),
+                              backgroundColor: PlatformDispatcher.instance.platformBrightness == Brightness.dark ?
+                                Theme.of(context).colorScheme.onSurface.withOpacity(.05) :
+                                Theme.of(context).colorScheme.onSurface.withOpacity(.15),
+                            );
+                          }
                         );
                       }
                     ),
                   ),
-                )
+                ),
+                SizedBox(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: size.height * .005),
+                    child: PageView(
+                      controller: _pageController,
+                      allowImplicitScrolling: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: <Widget>[
+                        AddDataSignUpScreen(),
+                        const ChooseYourPictureScreen(),
+                        Container(),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: size.width * .07,
+                        right: size.width * .07,
+                        bottom: size.height * .05,
+                      ),
+                      child: ValueListenableBuilder<int>(
+                        valueListenable: widget._store.currentPage,
+                        builder: (_, value, __) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Expanded(
+                                flex: 0,
+                                child: Visibility(
+                                  visible: value > 1,
+                                  child: ButtonCircleWidget(
+                                    onTap: () async {
+                                      if (value > 1) {
+                                        if (mounted) {
+                                          widget._store.currentPage.value = widget._store.currentPage.value - 1;
+                                          await _pageController.previousPage(
+                                            duration: const Duration(seconds: 1), 
+                                            curve: Curves.fastEaseInToSlowEaseOut
+                                          );
+                                        }
+                                      }
+                                    },
+                                    icon: LucideIcons.moveLeft,
+                                  ).animate()
+                                   .moveX(
+                                    begin: -200,
+                                    duration: const Duration(seconds: 1),
+                                    curve: Curves.fastEaseInToSlowEaseOut
+                                  ),
+                                )
+                              ),
+                              Expanded(
+                                flex: 0,
+                                child: Visibility(
+                                  visible: value < 3,
+                                  child: ButtonCircleWidget(
+                                    onTap: () async {
+                                      if (value < 3) {
+                                        if (mounted) {
+                                          widget._store.currentPage.value = widget._store.currentPage.value + 1;
+                                          await _pageController.nextPage(
+                                            duration: const Duration(milliseconds: 1500), 
+                                            curve: Curves.fastEaseInToSlowEaseOut
+                                          );
+                                        }
+                                      }
+                                    },
+                                  ).animate()
+                                   .moveX(
+                                    begin: 200,
+                                    duration: const Duration(seconds: 1),
+                                    curve: Curves.fastEaseInToSlowEaseOut
+                                  ),
+                                )
+                              ),
+                            ],
+                          );
+                        }
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           )

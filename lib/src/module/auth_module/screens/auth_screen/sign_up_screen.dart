@@ -104,14 +104,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           transition: PopoverTransition.scale,
                         );
                       } : null,
-                      onTap: () => showModalBottomSheet(
-                        context: context,
-                        enableDrag: false,
-                        isDismissible: false,
-                        isScrollControlled: true,
-                        backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(.0),
-                        builder: (_) => const ChooseYourCountryComponent()
-                      ),
+                      onTap: () {
+                        _biFocusNode.unfocus();
+                        _emailFocusNode.unfocus();
+                        _userNameFocusNode.unfocus();
+                        _phoneNumberFocusNode.unfocus();
+                        showModalBottomSheet(
+                          context: context,
+                          enableDrag: false,
+                          isDismissible: false,
+                          isScrollControlled: true,
+                          backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(.0),
+                          builder: (_) => const ChooseYourCountryComponent()
+                        );
+                      },
                       child: DropButtonCountryComponent()
                     ),
                     onSubmitted: (_) => FocusScope.of(context).requestFocus(_biFocusNode),

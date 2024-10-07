@@ -66,7 +66,7 @@ class ChooseYourBirthdayComponent extends StatelessWidget {
                                 height: size.height * .3,
                                 child: CupertinoDatePicker(
                                   use24hFormat: true,
-                                  showDayOfWeek: true,
+                                  showDayOfWeek: false,
                                   maximumDate: DateTime(
                                     DateTime.now().year,
                                     DateTime.now().month,

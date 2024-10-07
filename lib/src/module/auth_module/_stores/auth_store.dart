@@ -4,8 +4,8 @@ import 'package:country_currency_pickers/country.dart';
 import 'package:country_currency_pickers/countries.dart';
 
 class AuthStore {
-  late ValueNotifier<bool> isValidBI;
   late ValueNotifier<bool> loading;
+  late ValueNotifier<bool> isValidBI;
 
   late ValueNotifier<bool> isSelectAuth;
   late ValueNotifier<bool> rememberLogin;

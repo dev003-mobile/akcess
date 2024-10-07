@@ -9,7 +9,7 @@ analyzer:
 
 linter:  
   rules:
-    unnecessary_await_in_return: true
+    unnecessary_await_in_return: false
     # prefer_single_quotes: true
     # prefer_double_quotes: true
     prefer_final_locals: true

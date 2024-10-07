@@ -81,5 +81,10 @@
   "gender" : "Gênero",
   "selectYourGender" : "Seu gênero",
   "yourAge" : "Sua idade",
-  "select" : "Selecionar"
+  "select" : "Selecionar",
+  "address" : "Morada",
+  "checkYourInternetConnection" : "Verifique sua ligação à internet",
+  "thereWasAProblem" : "Ocorreu um problema. Tente mais tarde",
+  "city" : "Cidade",
+  "chooseAPhoto" : "Selecione uma foto"
 }
