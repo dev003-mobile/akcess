@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
-import 'package:photo_gallery/photo_gallery.dart';
+// import 'package:photo_gallery/photo_gallery.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -24,11 +24,11 @@ class _ChooseYourPictureScreenState extends State<ChooseYourPictureScreen> {
     widget._store.hasMorePhotos = ValueNotifier<bool>(false);
     widget._store.isLoadingPhotos = ValueNotifier<bool>(false);
     widget._store.currentPagePhotos = ValueNotifier<int>(0);
-    widget._store.images = ValueNotifier<List<Medium>>(<Medium>[]);
+    // widget._store.images = ValueNotifier<List<Medium>>(<Medium>[]);
 
     _scrollController.addListener(() async {
       if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
-        await widget._store.fetchGalleryPhotos();
+        // await widget._store.fetchGalleryPhotos();
       }
     });
   }
@@ -36,7 +36,7 @@ class _ChooseYourPictureScreenState extends State<ChooseYourPictureScreen> {
   @override
   void dispose() {
     super.dispose();
-    widget._store.images.dispose();
+    // widget._store.images.dispose();
     widget._store.hasMorePhotos.dispose();
     widget._store.isLoadingPhotos.dispose();
     widget._store.currentPagePhotos.dispose();
@@ -75,52 +75,52 @@ class _ChooseYourPictureScreenState extends State<ChooseYourPictureScreen> {
               curve: Curves.fastEaseInToSlowEaseOut,
               duration: const Duration(milliseconds: 1500), 
             ),
-            SizedBox(height: size.height * .06),
-            SizedBox(
-              child: ValueListenableBuilder<bool>(
-                valueListenable: widget._store.isLoadingPhotos,
-                builder: (_, isLoading, __) {
-                  return ValueListenableBuilder<List<Medium>>(
-                    valueListenable: widget._store.images,
-                    builder: (_, value, __) {
-                      return Visibility(
-                        visible: value.isNotEmpty,
-                        replacement: Padding(
-                          padding: EdgeInsets.only(top: size.height * .3),
-                          child: Center(
-                            child: CircularProgressIndicator(
-                              strokeWidth: 0.5,
-                              color: Theme.of(context).colorScheme.secondary,
-                            )
-                          )
-                        ),
-                        child: GridView.builder(
-                          controller: _scrollController, // Controlador de scroll
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 4,
-                            mainAxisSpacing: 4,
-                          ),
-                          itemCount: value.length + (isLoading ? 1 : 0),
-                          itemBuilder: (_, index) {
-                            final Medium image = value[index];
-                            return FutureBuilder(
-                              future: image.getThumbnail(),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
-                                  return Container(color: const Color(0xFFBF2121));
-                                }
-                                return Container(color: Colors.grey[300]);
-                              },
-                            );
-                          },
-                        ),
-                      );
-                    }
-                  );
-                }
-              ),
-            )
+            // SizedBox(height: size.height * .06),
+            // SizedBox(
+            //   child: ValueListenableBuilder<bool>(
+            //     valueListenable: widget._store.isLoadingPhotos,
+            //     builder: (_, isLoading, __) {
+            //       return ValueListenableBuilder<List<Medium>>(
+            //         valueListenable: widget._store.images,
+            //         builder: (_, value, __) {
+            //           return Visibility(
+            //             visible: value.isNotEmpty,
+            //             replacement: Padding(
+            //               padding: EdgeInsets.only(top: size.height * .3),
+            //               child: Center(
+            //                 child: CircularProgressIndicator(
+            //                   strokeWidth: 0.5,
+            //                   color: Theme.of(context).colorScheme.secondary,
+            //                 )
+            //               )
+            //             ),
+            //             child: GridView.builder(
+            //               controller: _scrollController, // Controlador de scroll
+            //               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //                 crossAxisCount: 3,
+            //                 crossAxisSpacing: 4,
+            //                 mainAxisSpacing: 4,
+            //               ),
+            //               itemCount: value.length + (isLoading ? 1 : 0),
+            //               itemBuilder: (_, index) {
+            //                 final Medium image = value[index];
+            //                 return FutureBuilder(
+            //                   future: image.getThumbnail(),
+            //                   builder: (context, snapshot) {
+            //                     if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+            //                       return Container(color: const Color(0xFFBF2121));
+            //                     }
+            //                     return Container(color: Colors.grey[300]);
+            //                   },
+            //                 );
+            //               },
+            //             ),
+            //           );
+            //         }
+            //       );
+            //     }
+            //   ),
+            // )
           ],
         ),
       ),

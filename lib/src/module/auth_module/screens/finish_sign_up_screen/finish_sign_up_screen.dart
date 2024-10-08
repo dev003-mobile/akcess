@@ -8,6 +8,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../exports/auth_exports.dart';
+import '../redefine_password_screen.dart';
 import 'add_data_sign_up_screen.dart';
 import 'choose_your_picture_screen.dart';
 
@@ -98,7 +99,7 @@ class _FinishSignUpScreenState extends State<FinishSignUpScreen> {
                       children: <Widget>[
                         AddDataSignUpScreen(),
                         ChooseYourPictureScreen(),
-                        Container(),
+                        RedefinePasswordScreen(),
                       ],
                     ),
                   ),
